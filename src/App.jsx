@@ -1,5 +1,6 @@
 import { useState , useEffect } from 'react';
 import Header from './components/Header';
+import Card from './components/Card';
 import './App.css';
 
 function App() {
@@ -20,21 +21,24 @@ function App() {
   // axios
 
   return (
-    <>
-      <Header />
-      {pokemons?.map((pokemon, index) => (
-          <div className='oh' key={index}>
-            <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
-            <p>Nom: {pokemon.name.fr}</p>
-            <p>ID: {pokemon.pokedex_id}</p>
-            <p>Type: {pokemon.types[0].name}</p>
-          </div>
-        ))}
-    </>
+    <section className='main'>
+      {pokemons?.map((pokemon) => (
+                <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
+      ))}
+    </section>
   );
-}
+    
+};
 
 export default App
+
+// {pokemons?.map((pokemon, index) => (
+//   <div className='oh' key={index}>
+//     <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
+//     <p>Nom: {pokemon.name.fr}</p>
+//     <p>ID: {pokemon.pokedex_id}</p>
+//     <p>Type: {pokemon.types[0].name}</p>
+//   </div>
 
 
 
