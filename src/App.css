@@ -1,14 +1,111 @@
-#root{
+.main{
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    padding: 0 2rem 0 2rem;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap:1rem
+    gap: 2rem;
+    background-color: #2f2f2f;
 }
 
-.oh{
-    color: #fff;
-    background-color: black;
+/* CARD POKEMON */
+
+.card{
+    height: 360px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    border: 2px solid gray;
+    background-image: url('./assets/fond-plante.png');
+    background-size: cover;
+}
+.imgPokemon{
+    height: 60%;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    background-color: #2f2f2f;
+    border-radius: 8px 8px 0 0;
+}
+.description{
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.description > .name{
+    text-align: center;
+}
+
+.description > .types{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.description > .types > img{
+    height: 24px;
+    width: 24px;
+    border-radius: 50px;
+}
+
+.stats{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -1rem;
+}
+
+.stats-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 25%;
+    border: 1px solid white; 
     border-radius: 16px;
-    padding: 0rem 0.5rem 0.5rem 0.5rem;
+    background-color: #fff;
+}
+
+.title-stats{
+    width: 50%;
+    border-radius: 16px;
+    /* border: 2px solid black; */
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-stats>p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #fff;
+}
+
+.pItem{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pv{
+    background-color: #038d00; 
+}
+#attaque{
+    background-color: #cc0000;
+}
+#defense{
+    background-color: #002dcc;
 }
