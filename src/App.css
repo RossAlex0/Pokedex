@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&display=swap');
+:root{
+    --white: #F3F3F3;
+    --gray: #D9D9D9;
+    --dark: #2F2F2F;
+    --green-background: #91C28D;
+    --primary-font: "Be Vietnam Pro", sans-serif;
+    --secondary-font:  "Concert One", sans-serif;
+}
+
 .main{
     width: 100%;
     display: flex;
@@ -9,28 +19,26 @@
     background-color: #2f2f2f;
 }
 
+
 /* CARD POKEMON */
 
 .card{
-    height: 360px;
+    height: 340px;
     width: 280px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 8px;
-    border: 2px solid gray;
     background-image: url('./assets/fond-plante.png');
     background-size: cover;
 }
 .imgPokemon{
     height: 60%;
-    width: 100%;
-    border-bottom: 1px solid gray;
-    background-color: #2f2f2f;
-    border-radius: 8px 8px 0 0;
+    width: 80%;  
 }
 .description{
-    height: 25%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,6 +58,13 @@
     gap: 1rem;
 }
 
+.description > p{
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: var(--dark);
+    font-family: var(--secondary-font);
+}
+
 .description > .types > img{
     height: 24px;
     width: 24px;
@@ -57,13 +72,12 @@
 }
 
 .stats{
-    height: 15%;
+    height: 10%;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: -1rem;
 }
 
 .stats-item{
@@ -71,15 +85,15 @@
     flex-direction: row;
     justify-content: space-between;
     width: 25%;
-    border: 1px solid white; 
+    border: 1px solid var(--white); 
     border-radius: 16px;
-    background-color: #fff;
+    background-color: var(--white);
+    font-family: var(--primary-font);
 }
 
 .title-stats{
     width: 50%;
     border-radius: 16px;
-    /* border: 2px solid black; */
     font-size: 0.7rem;
     display: flex;
     justify-content: center;
@@ -90,7 +104,7 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    color: #fff;
+    color: var(--white);
 }
 
 .pItem{
