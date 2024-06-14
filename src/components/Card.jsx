@@ -11,8 +11,6 @@ export default function Card({ pokemon }) {
           return "url('../src/assets/fond-combat.png')";
         case "Dragon":
           return "url('../src/assets/fond-dragon.png')";
-        case "Électrik":
-          return "url('../src/assets/fond-electrique.png')";
         case "Fée":
           return "url('../src/assets/fond-fee.png')";
         case "Glace":
@@ -40,7 +38,7 @@ export default function Card({ pokemon }) {
     const backgroundImage = backgroundImageGet(pokemon.types[0].name);
   
     return (
-      <div className="card" style={{ backgroundImage }}>
+    <div className="card" style={{ backgroundImage }}>
         <div className="stats">
           <div className="stats-item">
             <div className="title-stats" id="pv">
@@ -63,9 +61,16 @@ export default function Card({ pokemon }) {
         </div>
         <img className="imgPokemon" src={pokemon.sprites.regular} alt={pokemon.name.fr} />
         <div className="description">
-          <p className="name">{pokemon.name.fr} <span className="idPokemon">#{pokemon.pokedex_id}</span></p>
-          <p className="types">Type : {pokemon.types[0].name}<img src={pokemon.types[0].image} alt={pokemon.types[0].name} /></p>
+            <p className="name">{pokemon.name.fr} <span className="idPokemon">#{pokemon.pokedex_id}</span></p>
+            <p className="types">Type : {pokemon.types[0].name}<img src={pokemon.types[0].image} alt={pokemon.types[0].name} /> 
+                    {pokemon.types[1] && (
+                        <>
+                        {pokemon.types[1].name}
+                        <img src={pokemon.types[1].image} alt={pokemon.types[1].name} />
+                        </>
+                    )}
+            </p>       
         </div>
-      </div>
+    </div>
     );
   }
