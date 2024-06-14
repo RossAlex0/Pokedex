@@ -4,11 +4,7 @@ import Card from './components/Card';
 import './App.css';
 
 function App() {
-  const [pokemons, setPokemons] = useState();
-  //image du pokemon = pokemon[76].sprites.regular
-  // nom du pokemon = pokemon[76].name.fr
-  // id pokemon = pokemon[76].pokedex_id
-  // type pokemon = pokemon[76].types[0].name 
+  const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
     fetch('https://tyradex.vercel.app/api/v1/gen/1')
@@ -23,7 +19,7 @@ function App() {
   return (
     <section className='main'>
       {pokemons?.map((pokemon) => (
-                <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
+            <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
       ))}
     </section>
   );
@@ -32,14 +28,10 @@ function App() {
 
 export default App
 
-// {pokemons?.map((pokemon, index) => (
-//   <div className='oh' key={index}>
-//     <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
-//     <p>Nom: {pokemon.name.fr}</p>
-//     <p>ID: {pokemon.pokedex_id}</p>
-//     <p>Type: {pokemon.types[0].name}</p>
-//   </div>
-
+ //image du pokemon = pokemon[76].sprites.regular
+  // nom du pokemon = pokemon[76].name.fr
+  // id pokemon = pokemon[76].pokedex_id
+  // type pokemon = pokemon[76].types[0].name 
 
 
 // {pokedex_id: 1, generation: 1, category: 'Pokémon Graine', name: {…}, sprites: {…}, …}
