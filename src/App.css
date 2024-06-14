@@ -29,8 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-   
+    border-radius: 8px; 
 }
 .imgPokemon{
     height: 60%;
@@ -54,7 +53,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .description > p{
@@ -111,6 +110,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.types{
+    width: 100%;
+    text-align: center;
 }
 
 #pv{
