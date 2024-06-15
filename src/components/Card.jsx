@@ -1,4 +1,9 @@
+import { useState } from 'react';
+
 export default function Card({ pokemon }) {
+
+    const [flipped, setFlipped] = useState(false);
+  
     const backgroundImageGet = (type) => {
       switch (type) {
         case "Feu":
@@ -29,48 +34,63 @@ export default function Card({ pokemon }) {
           return "url('../src/assets/fond-sol.png')";
         case "Spectre":
           return "url('../src/assets/fond-spectre.png')";
-        
         default:
           return "url('../src/assets/fond-normal.png')";
       }
     };
   
+    const handleCardClick = () => {
+      setFlipped(!flipped);
+    };
+  
     const backgroundImage = backgroundImageGet(pokemon.types[0].name);
   
     return (
-    <div className="card" style={{ backgroundImage }}>
-        <div className="stats">
-          <div className="stats-item">
-            <div className="title-stats" id="pv">
-              <p>PV</p>
-            </div>
-            <p className="pItem">{pokemon.stats.hp}</p>
+      <div className={`card-container ${flipped ? 'flipped' : ''}`} onClick={handleCardClick}>
+          <div className="card card-front" style={{ backgroundImage }}>
+              <div className="stats">
+                  <div className="stats-item">
+                      <div className="title-stats" id="pv">
+                          <p>PV</p>
+                      </div>
+                      <p className="pItem">{pokemon.stats.hp}</p>
+                  </div>
+                  <div className="stats-item">
+                      <div className="title-stats" id="attaque">
+                          <p>ATQ</p>
+                      </div>
+                      <p className="pItem">{pokemon.stats.atk}</p>
+                  </div>
+                  <div className="stats-item">
+                      <div className="title-stats" id="defense">
+                          <p>DEF</p>
+                      </div>
+                      <p className="pItem">{pokemon.stats.def}</p>
+                  </div>
+              </div>
+              <img className="imgPokemon" src={pokemon.sprites.regular} alt={pokemon.name.fr} />
+              <div className="description">
+                  <p className="name">
+                      {pokemon.name.fr} <span className="idPokemon">#{pokemon.pokedex_id}</span>
+                  </p>
+                  <p className="types">Type : {pokemon.types[0].name}<img src={pokemon.types[0].image} alt={pokemon.types[0].name} />
+                      {pokemon.types[1] && (
+                          <>
+                            {pokemon.types[1].name}
+                            <img src={pokemon.types[1].image} alt={pokemon.types[1].name} />
+                          </>
+                      )}
+                  </p>
+              </div>
           </div>
-          <div className="stats-item">
-            <div className="title-stats" id="attaque">
-              <p>ATQ</p>
-            </div>
-            <p className="pItem">{pokemon.stats.atk}</p>
+          <div className="card card-back">
+              <img className="imgPokemon" id="imgPokemonBack" src={pokemon.sprites.shiny} alt={pokemon.name.fr}/>
+              <div className="description">
+                  <p className="name">{pokemon.name.fr} Shiny 🌟</p>
+                  <p className="types">C'est un {pokemon.category}.<br />Taille: {pokemon.height}<br />Poids: {pokemon.weight}
+                  </p>
+              </div>
           </div>
-          <div className="stats-item">
-            <div className="title-stats" id="defense">
-              <p>DEF</p>
-            </div>
-            <p className="pItem">{pokemon.stats.def}</p>
-          </div>
-        </div>
-        <img className="imgPokemon" src={pokemon.sprites.regular} alt={pokemon.name.fr} />
-        <div className="description">
-            <p className="name">{pokemon.name.fr} <span className="idPokemon">#{pokemon.pokedex_id}</span></p>
-            <p className="types">Type : {pokemon.types[0].name}<img src={pokemon.types[0].image} alt={pokemon.types[0].name} /> 
-                    {pokemon.types[1] && (
-                        <>
-                        {pokemon.types[1].name}
-                        <img src={pokemon.types[1].image} alt={pokemon.types[1].name} />
-                        </>
-                    )}
-            </p>       
-        </div>
-    </div>
-    );
-  }
+      </div>
+  );
+}
