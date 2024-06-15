@@ -9,6 +9,19 @@
     --secondary-font: 'Concert One', sans-serif;
 }
 
+body{
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+}
+
+#root{
+    background-color: var(--dark);
+    max-width: 1440px;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+}
+
 .main {
     width: 100%;
     display: flex;
@@ -17,7 +30,6 @@
     padding: 2rem;
     flex-wrap: wrap;
     gap: 2rem;
-    background-color: #2f2f2f;
 }
 
 .card-container {
@@ -31,7 +43,7 @@
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
-    transition: transform 0.6s;
+    transition: transform 2.5s;
     backface-visibility: hidden;
     border-radius: 8px;
 }
@@ -46,7 +58,7 @@
 
 .card-back {
     transform: rotateY(180deg);
-    background-image: url('./assets/fond-shiny.png');
+    background-image: url('../assets/fond-shiny.png');
     border: 1px solid var(--gray);
     color: var(--gray);
     background-size: cover;
@@ -58,12 +70,12 @@
 
 .card-container.flipped .card-front {
     transform: rotateY(180deg);
-    transition-duration: 1.5s;
+    
 }
 
 .card-container.flipped .card-back {
-    transform: rotateY(0deg);
-    transition-duration: 1.5s;
+    transform: rotateY(360deg);
+    
 }
 
 /* Card Pokemon */
@@ -176,4 +188,12 @@
 
 #defense {
     background-color: #002dcc;
+}
+
+/* media */
+
+@media screen and (max-width: 1420px){
+    #root{
+        width: 100%;
+    }
 }

@@ -1,7 +1,7 @@
 import { useState , useEffect } from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
-import './App.css';
+import './styles/App.css';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -17,11 +17,14 @@ function App() {
   // axios
 
   return (
-    <section className='main'>
-      {pokemons?.map((pokemon) => (
-            <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
-      ))}
-    </section>
+    <>
+      <Header />
+      <section className='main'>
+        {pokemons?.map((pokemon) => (
+              <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
+        ))}
+      </section>
+    </>
   );
     
 };
