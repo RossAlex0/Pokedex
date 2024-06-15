@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&display=swap');
+
+:root {
+    --white: #f3f3f3;
+    --gray: #d9d9d9;
+    --dark: #2f2f2f;
+    --green-background: #91c28d;
+    --primary-font: 'Be Vietnam Pro', sans-serif;
+    --secondary-font: 'Concert One', sans-serif;
+}
+
+.header{
+    height: 20rem;
+    width: 1432px;
+    background-image: url('../assets/backgroundHeader.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: white;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 10px 12px 12px 8px rgba(0, 0, 0, 0.452) inset;
+}
+
+/* CERCLE BLEU */
+
+.cercles-white-blue{
+    height: 20rem;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cercle-blanc{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 4px solid var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -4px -4px 4px 2px rgba(0, 0, 0, 0.452) inset;
+}
+.cercle-int-bleu{
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, #93cff0 0%, #55bbf7 15%, #0594e4 100%);
+    border: 4px solid var(--dark);
+    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
+}
+
+/* 3 Cercles */
+
+.cercle-line{
+    margin-left: 1rem;
+}
+.cercles-3{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.cercles-3 > div:first-child{
+    background-image: url('../assets/cercle-rouge.png');
+    background-size: cover;
+    border: 1px solid var(--dark);
+}
+.cercles-3 > div:nth-child(2){
+    background-image: url('../assets/cercle-jaune.png');
+    background-size: cover;
+    border: 1px solid var(--dark);
+}
+.cercles-3 > div:last-child{
+    background-image: url('../assets/cercle-vert.png');
+    background-size: cover;
+    border: 1px solid var(--dark);
+}
+
+.mini-cercle{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
+}
+
+/* titre */
+.title-header{
+    margin-left: auto;
+    margin-right: 4.5rem;
+    margin-top: 3rem;
+}
+.title-header > h1{
+    font-family: var(--secondary-font);
+    font-size: 7rem;
+    color: #FFEA32;
+    text-shadow: -8px -8px 0 #125CB3, 8px -8px 0 #125CB3,  -8px 8px 0 #125CB3,  8px 8px 0 #125CB3;
+}
+
+/* Barre phone */
+
+.hr-phone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.6;
+    margin-top: 5rem;
+}
+
+.hr-phone > hr:nth-child(2){
+    width: 80px;
+}
+
+hr{
+    height: 3px;
+    width: 90px;
+    border: none;
+    border-radius: 56px;
+    background-color: #000;
+}
+
+
+/* titre Mob Tab */
+
+.title-mob-tablette{
+    display: none;
+}
+
+@media screen and (max-width: 1420px){
+    .header{
+        display: none;
+    }
+    .title-mob-tablette{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 15vh;
+    }
+    .title-mob-tablette > h2{
+        font-family: var(--secondary-font);
+        font-size: 6rem;
+        color: #FFEA32;
+        text-shadow: -8px -8px 0 #125CB3, 8px -8px 0 #125CB3,  -8px 8px 0 #125CB3,  8px 8px 0 #125CB3;
+    }
+}
+
+@media screen and (max-width: 635px){
+    .title-mob-tablette > h2{
+        font-size: 3.5rem;
+        text-shadow: -5px -5px 0 #125CB3, 5px -5px 0 #125CB3,  -5px 5px 0 #125CB3,  5px 5px 0 #125CB3;
+    }
+
+}
+
+
+
+

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
 export default function Card({ pokemon }) {
-
-    const [flipped, setFlipped] = useState(false);
   
     const backgroundImageGet = (type) => {
       switch (type) {
@@ -39,11 +37,13 @@ export default function Card({ pokemon }) {
       }
     };
   
+    const backgroundImage = backgroundImageGet(pokemon.types[0].name);
+
+    const [flipped, setFlipped] = useState(false);
+  
     const handleCardClick = () => {
       setFlipped(!flipped);
     };
-  
-    const backgroundImage = backgroundImageGet(pokemon.types[0].name);
   
     return (
       <div className={`card-container ${flipped ? 'flipped' : ''}`} onClick={handleCardClick}>
