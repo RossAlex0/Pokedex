@@ -1,8 +1,10 @@
 import '../styles/Input.css'
 
-export default function Inputs () {
+export default function Inputs ({ valueId, valueName,  handleInputId, handleInputName }) {
     return (
         <>
+            <h2 className='h2Explor'>Mon Pokedex</h2>
+            <h3 className='h3Explor'>Explorez et trouvez tous les pokémons de vos rêves.</h3>
             <div className="filter">
                 <select name="pokType" className="input-search" id="searchByType">
                     <option value="">--Choisir un type de pokémon--</option>
@@ -22,8 +24,8 @@ export default function Inputs () {
                     <option value="Sol">--Sol⛰️</option>
                     <option value="Spectre">--Spectre👻</option>
                 </select>
-                <input type="text" className="input-search" id="searchById" placeholder="--Id du pokémon--"></input>
-                <input type="text" className="input-search" id="searchByName" placeholder="--Nom du pokémon--"></input>
+                <input type='number' value={valueId} onInput={handleInputId} className="input-search" id="searchById" placeholder="--ID du pokémon--"/>
+                <input type="text" value={valueName} onInput={handleInputName} className="input-search" id="searchByName" placeholder="--Nom du pokémon--"/>
             </div>
         </>
     )
