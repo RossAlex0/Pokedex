@@ -46,7 +46,7 @@ export default function Card({ pokemon }) {
     };
   
     return (
-      <div className={`card-container ${flipped ? 'flipped' : ''}`} onClick={handleCardClick}>
+      <div className={`card-container ${flipped ? 'flipped' : ''}`}>
           <div className="card card-front" style={{ backgroundImage }}>
               <div className="stats">
                   <div className="stats-item">
@@ -81,14 +81,15 @@ export default function Card({ pokemon }) {
                           </>
                       )}
                   </p>
+                  <span className='iconBackFace' onClick={handleCardClick}> &#x3009;</span>
               </div>
           </div>
           <div className="card card-back">
               <img className="imgPokemon" id="imgPokemonBack" src={pokemon.sprites.shiny} alt={pokemon.name.fr}/>
               <div className="description">
                   <p className="name">{pokemon.name.fr} Shiny 🌟</p>
-                  <p className="types">C'est un {pokemon.category}.<br />Taille: {pokemon.height}<br />Poids: {pokemon.weight}
-                  </p>
+                  <p className="types">C'est un {pokemon.category}.<br />Taille: {pokemon.height}<br />Poids: {pokemon.weight}</p>
+                  <span className='iconBack' onClick={handleCardClick}>&#x3008;</span>
               </div>
           </div>
       </div>

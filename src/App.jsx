@@ -1,6 +1,7 @@
 import { useState , useEffect } from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
+import Inputs from './components/Inputs';
 import './styles/App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <Header />
+      <Inputs />
       <section className='main'>
         {pokemons?.map((pokemon) => (
               <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
