@@ -43,7 +43,7 @@ body{
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
-    transition: transform 2.5s;
+    transition: transform 1.5s;
     backface-visibility: hidden;
     border-radius: 8px;
 }
@@ -177,6 +177,34 @@ body{
     margin-top: -2.3rem;
     margin-bottom: 1.8rem;
 }
+
+/* Icon back */
+.iconBackFace{
+    position: absolute;
+    right:-1rem;
+    top:100px;
+    color: var(--white);
+    font-size: 2rem;
+    transition-duration: 0.5s;
+    opacity: 0.6;
+ }
+ .iconBackFace:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+ }
+ .iconBack{
+    position: absolute;
+    left:-1rem;
+    top:100px;
+    color: var(--white);
+    transition-duration: 0.5s;
+    font-size: 2rem;
+    opacity: 0.6;
+ }
+ .iconBack:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+ }
 
 #pv {
     background-color: #038d00;
