@@ -15,14 +15,39 @@ function App() {
       })
   }, []);
 
+    const [valueId, setValueId] = useState('');
+
+    const [valueName, setValueName] = useState('');
+
+    const handleInputId = (input) => {
+      const searchId = input.target.value;
+      setValueId(searchId);
+  };
+
+  const handleInputName = (input) => {
+      const searchValue = input.target.value.toLowerCase();
+      setValueName(searchValue);
+  };
+
+  const filterPokemons = pokemons.filter(pokemon => {
+    if (valueId || valueName) {
+      return (
+        (valueId && pokemon.pokedex_id.toString() === valueId) ||
+        (valueName && pokemon.name.fr && pokemon.name.fr.toLowerCase().includes(valueName))
+      );
+    }else{
+      return true; 
+    }
+  } );
   // axios
 
   return (
     <>
       <Header />
-      <Inputs />
+      <Inputs valueId={valueId} valueName={valueName} handleInputId={handleInputId} handleInputName={handleInputName} />
       <section className='main'>
-        {pokemons?.map((pokemon) => (
+      <img src="./src/assets/pokeballbackg.png" className='pokeballBg' alt='pokeball'/>
+        {filterPokemons?.map((pokemon) => (
               <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
         ))}
       </section>
