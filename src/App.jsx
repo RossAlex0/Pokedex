@@ -5,6 +5,7 @@ import Inputs from './components/Inputs';
 import './styles/App.css';
 
 function App() {
+
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
@@ -19,32 +20,55 @@ function App() {
 
     const [valueName, setValueName] = useState('');
 
+    const [selectType, setSelectType] = useState('');
+
     const handleInputId = (input) => {
+      setValueName('');
+      setSelectType(" ");
       const searchId = input.target.value;
       setValueId(searchId);
   };
 
   const handleInputName = (input) => {
+      setValueId('');
+      setSelectType(" ");
       const searchValue = input.target.value.toLowerCase();
       setValueName(searchValue);
   };
 
+    const changeType = (change) => {
+        setValueId('');
+        setValueName(''); 
+        const selectTypes = change.target.value;
+        setSelectType(selectTypes); 
+    };
+
   const filterPokemons = pokemons.filter(pokemon => {
-    if (valueId || valueName) {
+    if (valueId || valueName || selectType) {
       return (
         (valueId && pokemon.pokedex_id.toString() === valueId) ||
-        (valueName && pokemon.name.fr && pokemon.name.fr.toLowerCase().includes(valueName))
+        (valueName && pokemon.name.fr && pokemon.name.fr.toLowerCase().includes(valueName)) ||
+        (selectType && pokemon.types.some(type => type.name === selectType))
       );
     }else{
       return true; 
     }
   } );
-  // axios
+
+    
+ 
+
 
   return (
     <>
       <Header />
-      <Inputs valueId={valueId} valueName={valueName} handleInputId={handleInputId} handleInputName={handleInputName} />
+      <Inputs 
+          valueId={valueId} 
+          valueName={valueName} 
+          handleInputId={handleInputId} 
+          handleInputName={handleInputName} 
+          changeType={changeType}
+          selectType={selectType}/>
       <section className='main'>
       <img src="./src/assets/pokeballbackg.png" className='pokeballBg' alt='pokeball'/>
         {filterPokemons?.map((pokemon) => (
@@ -57,62 +81,3 @@ function App() {
 };
 
 export default App
-
- //image du pokemon = pokemon[76].sprites.regular
-  // nom du pokemon = pokemon[76].name.fr
-  // id pokemon = pokemon[76].pokedex_id
-  // type pokemon = pokemon[76].types[0].name 
-
-
-// {pokedex_id: 1, generation: 1, category: 'Pokémon Graine', name: {…}, sprites: {…}, …}
-// catch_rate
-// : 
-// 45
-// category
-// : 
-// "Pokémon Graine"
-// egg_groups
-// : 
-// (2) ['Monstrueux', 'Végétal']
-// evolution
-// : 
-// {pre: null, next: Array(2), mega: null}
-// formes
-// : 
-// null
-// generation
-// : 
-// 1
-// height
-// : 
-// "0,7 m"
-// level_100
-// : 
-// 1059862
-// name
-// : 
-// {fr: 'Bulbizarre', en: 'Bulbasaur', jp: 'フシギダネ'}
-// pokedex_id
-// : 
-// 1
-// resistances
-// : 
-// (18) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-// sexe
-// : 
-// {male: 87.5, female: 12.5}
-// sprites
-// : 
-// {regular: 'https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/1/regular.png', shiny: 'https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/1/shiny.png', gmax: null}
-// stats
-// : 
-// {hp: 45, atk: 49, def: 49, spe_atk: 65, spe_def: 65, …}
-// talents
-// : 
-// (2) [{…}, {…}]
-// types
-// : 
-// (2) [{…}, {…}]
-// weight
-// : 
-// "6,9 kg
