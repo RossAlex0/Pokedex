@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 :root {
     --white: #f3f3f3;
     --gray: #d9d9d9;
@@ -50,6 +50,18 @@
     border: 4px solid var(--dark);
     box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
 }
+#profChen{
+    display: none;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    background-image: url('../assets/profChene.png');
+    background-size: 85%;
+    border-radius: 50%;
+    background-position:top;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
 
 /* 3 Cercles */
 
@@ -63,34 +75,29 @@
     align-items: center;
     gap: 2rem;
     margin-top: 2rem;
+    transition-duration: 2s;
 }
 
 .cercles-3 > div:first-child{
     background-image: url('../assets/cercle-rouge.png');
     background-size: cover;
     border: 1px solid var(--dark);
-    box-shadow: 0 0 20px 5px #fd7373;
+    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
 }
-.cercles-3 > div:first-child:hover{
-    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;    
-}
+
 .cercles-3 > div:nth-child(2){
     background-image: url('../assets/cercle-jaune.png');
     background-size: cover;
     border: 1px solid var(--dark);
-    box-shadow: 0 0 20px 5px #ffd700;
+    box-shadow: 0 0 10px #ffcc66, 0 0 20px #ffdd99, 0 0 30px #ffeecc;
 }
-.cercles-3 > div:nth-child(2):hover{
-    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
-}
+
 .cercles-3 > div:last-child{
     background-image: url('../assets/cercle-vert.png');
     background-size: cover;
     border: 1px solid var(--dark);
-    box-shadow: 0 0 20px 5px #17ff02;
-}
-.cercles-3 > div:last-child:hover{
     box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
+    
 }
 
 .mini-cercle{
@@ -120,7 +127,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    opacity: 0.6;
+    opacity: 0.9;
     margin-top: 5rem;
 }
 
@@ -129,11 +136,46 @@
 }
 
 hr{
-    height: 5%;
+    height: 5px;
     width: 90px;
     border: none;
     border-radius: 56px;
     background-color: #000;
+}
+
+/* chat bull */
+#welcomeBull{
+    top: 250px;
+    right: 200px;
+    z-index: 9;
+    display: flex;
+    padding-bottom: 4rem;
+}
+#chatBull{
+    top: 190px;
+    left: 170px;
+    z-index: 10;
+    display: none;
+}
+#chatBull,
+#welcomeBull{
+    height: 150px;
+    width: 480px;
+    position: absolute;
+    background-image: url('../assets/bulleConvers.png');
+    background-size: contain;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    justify-content: space-around;
+    color: var(--dark);
+    font-family:"Pixelify Sans", sans-serif;
+    font-size: 1.2rem;
+}
+#chatBull > p:first-child{
+    text-decoration: underline;
+}
+#welcomeBull > p:last-child{
+    font-weight: bold;
 }
 
 
