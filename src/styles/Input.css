@@ -38,6 +38,7 @@
     border-radius: 8px;
     background-color:  var(--white);
     z-index: 1;
+    text-align: center;
 }
 
 .input-search:nth-child(2)::-webkit-outer-spin-button,
@@ -48,6 +49,7 @@
 .input-search::placeholder{
     text-align: center;
     font-size: 14px;
+    padding: 0 4rem;
 }
 
 .input-search > option{
@@ -66,6 +68,19 @@
 .input-search:nth-child(1):focus{
     padding: 0;
     text-align: center;
+}
+
+.btn-refresh{
+    height: 32px;
+    font-size: 2.2rem;
+    padding: 4px 4px 0 0;
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    z-index: 4;
+    transform: rotate(-30deg);
 }
 
 @media screen and (max-width: 902px){
