@@ -1,6 +1,11 @@
 import '../styles/Input.css'
 
 export default function Inputs ({ valueId, valueName,  handleInputId, handleInputName, changeType , selectType}) {
+   
+    const handleClickRefresh = () => {
+        window.location.reload();
+      };
+   
     return (
         <>
             <h2 className='h2Explor'>Mon Pokedex</h2>
@@ -25,8 +30,9 @@ export default function Inputs ({ valueId, valueName,  handleInputId, handleInpu
                     <option value="Spectre">--Spectre👻</option>
                     <option value="Vol">--Vol🌪️</option>
                 </select>
-                <input type='number' value={valueId} onInput={handleInputId} className="input-search" id="searchById" placeholder="--ID du pokémon--"/>
-                <input type="text" value={valueName} onInput={handleInputName} className="input-search" id="searchByName" placeholder="--Nom du pokémon--"/>
+                <input type='number' value={valueId} onChange={handleInputId} className="input-search" id="searchById" placeholder="--ID du pokémon--"/>
+                <input type="text" value={valueName} onChange={handleInputName} className="input-search" id="searchByName" placeholder="--Nom du pokémon--"/>
+                <button type='button' className='btn-refresh' onClick={handleClickRefresh} >&#x21ba;</button>
             </div>
         </>
     )

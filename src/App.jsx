@@ -55,10 +55,6 @@ function App() {
     }
   } );
 
-    
- 
-
-
   return (
     <>
       <Header />
@@ -68,7 +64,8 @@ function App() {
           handleInputId={handleInputId} 
           handleInputName={handleInputName} 
           changeType={changeType}
-          selectType={selectType}/>
+          selectType={selectType}
+          />
       <section className='main'>
       <img src="./src/assets/pokeballbackg.png" className='pokeballBg' alt='pokeball'/>
         {filterPokemons?.map((pokemon) => (
@@ -81,3 +78,5 @@ function App() {
 };
 
 export default App
+
+
