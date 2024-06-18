@@ -1,7 +1,7 @@
 import '../styles/Input.css'
 
 export default function Inputs ({ valueId, valueName,  handleInputId, handleInputName, changeType , selectType}) {
-   
+    // Function crée pour rafraichir la page au clique afin réactualiser les cartes pokémon
     const handleClickRefresh = () => {
         window.location.reload();
       };

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-
-export default function Card({ pokemon }) {
-  
-    const backgroundImageGet = (type) => {
+  // Un Props 'pokemon' pour transférer les données de l'API à partir d'un State défini dans App.jsx
+  export default function Card({ pokemon }) {
+    // Utilisation d'un switch pour vérifier à quel cas correspond l'expression donnée
+    const getBackground = (type) => {
       switch (type) {
         case "Feu":
           return "url('../src/assets/fond-feu.png')";
@@ -36,18 +36,18 @@ export default function Card({ pokemon }) {
           return "url('../src/assets/fond-normal.png')";
       }
     };
-  
-    const backgroundImage = backgroundImageGet(pokemon.types[0].name);
-
-    const [flipped, setFlipped] = useState(false);
-  
+    const backgroundOfType = getBackground(pokemon.types[0].name);
+    // Utilisation d'un State pour stocker la valeur initialisée 'true' et l'inverser au clic grâce à une fonction
+    const [flipped, setFlipped] = useState(false);  
     const handleCardClick = () => {
       setFlipped(!flipped);
     };
   
     return (
+      // Vérifie si 'flipped' retourne true, si c'est le cas, il ajoute la classe 'flipped' à la division
       <div className={`card-container ${flipped ? 'flipped' : ''}`}>
-          <div className="card card-front" style={{ backgroundImage }}>
+          {/* Dans le style, on ajoute directement le background obtenu grâce au switch */}
+          <div className="card card-front" style={{ backgroundOfType }}>
               <div className="stats">
                   <div className="stats-item">
                       <div className="title-stats" id="pv">
