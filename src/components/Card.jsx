@@ -36,7 +36,7 @@ import { useState } from 'react';
           return "url('../src/assets/fond-normal.png')";
       }
     };
-    const backgroundOfType = getBackground(pokemon.types[0].name);
+    const backgroundImage = getBackground(pokemon.types[0].name);
     // Utilisation d'un State pour stocker la valeur initialisée 'true' et l'inverser au clic grâce à une fonction
     const [flipped, setFlipped] = useState(false);  
     const handleCardClick = () => {
@@ -47,7 +47,7 @@ import { useState } from 'react';
       // Vérifie si 'flipped' retourne true, si c'est le cas, il ajoute la classe 'flipped' à la division
       <div className={`card-container ${flipped ? 'flipped' : ''}`}>
           {/* Dans le style, on ajoute directement le background obtenu grâce au switch */}
-          <div className="card card-front" style={{ backgroundOfType }}>
+          <div className="card card-front" style={{ backgroundImage }}>
               <div className="stats">
                   <div className="stats-item">
                       <div className="title-stats" id="pv">
