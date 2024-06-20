@@ -21,11 +21,12 @@ export default function Header() {
             profChen.style.display = "none";
         }, 9000)
     };
-
+    // Au clique la fenetre de discussion et l'image du ProfChen disparaissent
     const handleClickCloseProf = () => {
         chatBull.style.display = "none";
         profChen.style.display = "none";
     };
+    // Au clique la fenetre de discussion welcome disparait
     const handleClickCloseWelcome = () => {
         welcomeBull.style.display = "none";
     };
