@@ -5,7 +5,8 @@ import Header from './components/Header';
 import Card from './components/Card';
 import Inputs from './components/Inputs';
 
-import ronflex from './assets/ronflex.json'
+import pokeBallBg from './assets/pokeballbackg.png';
+import ronflex from './assets/ronflex.json';
 import './styles/App.css';
 
 function App() {
@@ -121,7 +122,7 @@ pokemons? useEffect(() => {
           setSelectType={setSelectType}
           />
       <section className='main'>
-      <img src="./src/assets/pokeballbackg.png" className='pokeballBg' alt='pokeball'/>
+      <img src={pokeBallBg} className='pokeballBg' alt='pokeball'/>
       <div id='animatEmpty'>
         <div className="animat">
           <Lottie animationData={ronflex} loop={true}/>
