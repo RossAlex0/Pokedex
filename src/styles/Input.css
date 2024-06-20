@@ -1,3 +1,4 @@
+/* Général */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&display=swap');
 
 :root {
@@ -8,7 +9,9 @@
     --primary-font: 'Be Vietnam Pro', sans-serif;
     --secondary-font: 'Concert One', sans-serif;
 }
+/*  */
 
+/* Titres du input */
 .h2Explor{
     font-size: 3rem;
     font-family: var(--primary-font);
@@ -21,7 +24,9 @@
     color: var(--white);
     padding-left: 3rem;
 }
+/*  */
 
+/* Container principale des filtres */
 .filter{
     display: flex;
     flex-direction: row;
@@ -29,34 +34,26 @@
     padding-left: 3rem;
     gap: 2%;
 }
+/*  */
 
-.input-search{
+/* Containers parent des inputs */
+.div-search{
     height: 32px;
-    width: 25%;
+    width: 280px;
+    z-index: 1;
+}
+/*  */
+
+/* INPUT */
+.input-search{
+    height: 100%;
+    width: 100%;
     font-family: var(--primary-font);
     border: none;
     border-radius: 8px;
     background-color:  var(--white);
-    z-index: 1;
-    text-align: center;
+    padding-left: 1rem;
 }
-
-.input-search:nth-child(2)::-webkit-outer-spin-button,
-.input-search:nth-child(2)::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-.input-search::placeholder{
-    text-align: center;
-    font-size: 14px;
-    padding: 0 4rem;
-}
-
-.input-search > option{
-    text-align: center;
-    font-size: 14px;
-}
-
 .input-search:focus{
     border: none;
     outline: 1px solid var(--white);
@@ -65,30 +62,71 @@
     font-weight: bold;
     padding: 0 1rem;
 }
-.input-search:nth-child(1):focus{
-    padding: 0;
-    text-align: center;
+.input-search::placeholder,
+#searchByType{
+    font-size: 1rem;  
 }
+/*  */
 
-.btn-refresh{
-    height: 32px;
-    font-size: 2.2rem;
-    padding: 4px 4px 0 0;
+/* BOUTTON REFRESH DANS L INPUT */
+.btn-close-search{
+    display: none;
+    height: 100%;
+    width: 10%;
+    margin-left: -11%;
     border: none;
+    border-radius: 0 8px 8px 0;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: var(--primary-font);
     background-color: transparent;
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    z-index: 4;
-    transform: rotate(-30deg);
 }
+#close1{
+    margin-left: -15%;
+}
+/*  */
 
+/* WEBKIT */
+/* select {
+    -webkit-appearance: none;  
+    -moz-appearance: none;     
+    appearance: none; 
+} */
+#searchById::-webkit-outer-spin-button,
+#searchById::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#searchById {
+    -moz-appearance: textfield; 
+    appearance: textfield;
+}
+/*  */
+
+/* MEDIA */
 @media screen and (max-width: 902px){
+    .h2Explor{
+        display: none;
+    }
+    .h3Explor{
+        padding: 3rem 3rem 0 3rem;
+        line-height: 2rem;
+        font-size: 1.2rem;   
+    }
+    .h3Explor::after{
+        content: "Chaque créature mystérieuse que vous rencontrerez enrichira votre aventure et dévoilera de nouveaux secrets passionnants!";
+    }
     .filter{
         flex-direction: column;
         gap: 1.5rem;
+        padding: 0 3rem;
     }
-    .input-search{
-        width: 268px;
+    .div-search{
+        width: 100%;
+        max-width: 280px;
+    }
+    .input-search::placeholder{
+        padding: 0;
     }
 }
+/*  */

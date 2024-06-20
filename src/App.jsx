@@ -9,10 +9,11 @@ import './styles/App.css';
 function App() {
   // Création d'un State pour stocker les données provenant de l'API
   const [pokemons, setPokemons] = useState([]);
-  // Utilisation de useEffect pour améliorer la performance en
+  // Utilisation de useEffect pour améliorer les performances en mettant à jour
+  //  la liste de pokémons une seule fois lorsque le composant est créé
   useEffect(() => {
     // Effectue une requête API pour récupérer les données de s pokémons de première génération
-    fetch('https://tyradex.vercel.app/api/v1/gen/1')
+   fetch('https://tyradex.vercel.app/api/v1/gen/1')
         // Transforme la réponse en un objet JSON
         .then(response => response.json())
         .then((response) => { 
@@ -20,9 +21,14 @@ function App() {
       })
   }, []);
 
-  // Création du State qui servira à stocker la valeur de l'input 'ID'
+  // Création du State qui servira à stocker la valeur de l'input 'searchById'
   const [valueId, setValueId] = useState('');
   const handleInputId = (input) => {
+    // Modifie la visibilité des bouttons de rafraichissement des inputs
+    close1.style.display = "none"
+    close2.style.display = "inline-block"
+    close3.style.display = "none"
+    // 
     // Réinitialisation des valeurs de l'input
     setValueName('');
     setSelectType(" ");
@@ -32,9 +38,14 @@ function App() {
     setValueId(searchId); 
   };
 
-  // Création du State qui servira à stocker la valeur de l'input 'name'
+  // Création du State qui servira à stocker la valeur de l'input 'searchByName'
   const [valueName, setValueName] = useState('');
   const handleInputName = (input) => {
+    // Modifie la visibilité des bouttons de rafraichissement des inputs
+    close1.style.display = "none"
+    close2.style.display = "none"
+    close3.style.display = "inline-block"
+    // 
     // Réinitialisation des valeurs de l'input
     setValueId('');
     setSelectType(" ");
@@ -44,8 +55,14 @@ function App() {
     setValueName(searchValue);
   };
 
+  // Création du state qui servira à stocker la valeur du select 'searchByType'
   const [selectType, setSelectType] = useState('');
   const changeType = (change) => {
+    // Modifie la visibilité des bouttons de rafraichissement des inputs
+    close1.style.display = "inline-block"
+    close2.style.display = "none"
+    close3.style.display = "none"
+    // 
     // Réinitialisation des valeurs de l'input
     setValueId('');
     setValueName(''); 
@@ -61,7 +78,7 @@ function App() {
     if (valueId || valueName || selectType) {
       return (
          // Vérifie si l'ID du Pokémon correspond à la valeur saisie
-        (valueId && pokemon.pokedex_id.toString() === valueId) || 
+        (valueId && pokemon.pokedex_id.toString().includes(valueId)) || 
         // Vérifie si le nom du Pokémon contient la valeur saisie 
         (valueName && pokemon.name.fr && pokemon.name.fr.toLowerCase().includes(valueName)) ||
         // Vérifie si le type d'un Pokemon correspondant au type sélectionné
@@ -79,11 +96,14 @@ function App() {
       <Inputs 
           // Props pour transmettre des valeurs ou fonctions à l'élément enfant via
           valueId={valueId} 
-          valueName={valueName} 
+          valueName={valueName}
+          setValueName={setValueName}
+          setValueId={setValueId} 
           handleInputId={handleInputId} 
           handleInputName={handleInputName} 
           changeType={changeType}
           selectType={selectType}
+          setSelectType={setSelectType}
           />
       <section className='main'>
       <img src="./src/assets/pokeballbackg.png" className='pokeballBg' alt='pokeball'/>

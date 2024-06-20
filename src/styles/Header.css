@@ -1,3 +1,4 @@
+/* GENERAL */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 :root {
@@ -8,7 +9,9 @@
     --primary-font: 'Be Vietnam Pro', sans-serif;
     --secondary-font: 'Concert One', sans-serif;
 }
+/*  */
 
+/*  CONTAINER PRINCIPAL */
 .header{
     height: 20rem;
     width: 1432px;
@@ -21,9 +24,9 @@
     flex-direction: row;
     box-shadow: 10px 12px 12px 3px rgba(0, 0, 0, 0.452) inset;
 }
+/*  */
 
-/* CERCLE BLEU */
-
+/* CERCLE IMITATION APPEL VIDEO */
 .cercles-white-blue{
     height: 20rem;
     width: 20%;
@@ -48,7 +51,8 @@
     border-radius: 50%;
     background: radial-gradient(circle, #93cff0 0%, #55bbf7 15%, #0594e4 100%);
     border: 4px solid var(--dark);
-    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
+    box-shadow: 8px 9px 8px rgba(0, 0, 0, 0.2) inset, 8px 8px 8px rgba(0, 0, 0, 0.3) inset,
+    16px 16px 16px rgba(0, 0, 0, 0.2) inset ;
 }
 #profChen{
     display: none;
@@ -63,8 +67,7 @@
     opacity: 0.8;
 }
 
-/* 3 Cercles */
-
+/* 3 CERCLES LUMINEUX */
 .cercle-line{
     margin-left: 1rem;
 }
@@ -77,37 +80,56 @@
     margin-top: 2rem;
     transition-duration: 2s;
 }
-
 .cercles-3 > div:first-child{
     background-image: url('../assets/cercle-rouge.png');
     background-size: cover;
     border: 1px solid var(--dark);
-    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2) inset, 4px 8px 8px rgba(0, 0, 0, 0.3) inset,
+     6px 12px 12px rgba(0, 0, 0, 0.2) inset ;
 }
-
 .cercles-3 > div:nth-child(2){
     background-image: url('../assets/cercle-jaune.png');
     background-size: cover;
     border: 1px solid var(--dark);
-    box-shadow: 0 0 10px #ffcc66, 0 0 20px #ffdd99, 0 0 30px #ffeecc;
+    box-shadow: 0 0 10px 5px #ffcc66, -6px -6px 8px rgba(0, 0, 0, 0.2) inset,8px 12px 16px -1px  #ffcc66 inset,0 0 20px #ffdd99, 0 0 30px #ffeecc,2px 4px 4px rgba(0, 0, 0, 0.2)
 }
-
 .cercles-3 > div:last-child{
     background-image: url('../assets/cercle-vert.png');
     background-size: cover;
     border: 1px solid var(--dark);
-    box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
-    
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.2) inset, 5px 8px 8px rgba(0, 0, 0, 0.3) inset,
+     6px 12px 12px rgba(0, 0, 0, 0.2) inset ;   
 }
-
 .mini-cercle{
     height: 50px;
     width: 50px;
     border-radius: 50%;
     box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.452) inset;
 }
+/*  */
 
-/* titre */
+/* Barre phone */
+.hr-phone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.9;
+    margin-top: 5rem;
+}
+.hr-phone > hr:nth-child(2){
+    width: 80px;
+}
+hr{
+    height: 5px;
+    width: 90px;
+    border: none;
+    border-radius: 56px;
+    background-color: #000;
+}
+/*  */
+
+/* TITRE SUR LA DROITE*/
 .title-header{
     margin-left: auto;
     margin-right: 4.5rem;
@@ -119,41 +141,19 @@
     color: #FFEA32;
     text-shadow: -8px -8px 0 #125CB3, 8px -8px 0 #125CB3,  -8px 8px 0 #125CB3,  8px 8px 0 #125CB3;
 }
+/*  */
 
-/* Barre phone */
-
-.hr-phone{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    opacity: 0.9;
-    margin-top: 5rem;
-}
-
-.hr-phone > hr:nth-child(2){
-    width: 80px;
-}
-
-hr{
-    height: 5px;
-    width: 90px;
-    border: none;
-    border-radius: 56px;
-    background-color: #000;
-}
-
-/* chat bull */
+/* BULLE DE MESSAGE STYLE POKEMON */
 #welcomeBull{
-    top: 250px;
-    right: 200px;
+    margin-top: 180px;
+    margin-left: 500px;
     z-index: 9;
     display: flex;
     padding-bottom: 4rem;
 }
 #chatBull{
-    top: 190px;
-    left: 170px;
+    margin-top: 100px;
+    margin-left: -140px;
     z-index: 10;
     display: none;
 }
@@ -175,42 +175,55 @@ hr{
     text-decoration: underline;
 }
 #welcomeBull > p:last-child{
-    font-weight: bold;
+    font-weight: 600;
 }
+.icon-close-chat{
+    position: absolute;
+    margin-top: -85px;
+    margin-left: 405px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    transition-duration: 1s;
+}
+.icon-close-chat:hover{
+    transform: rotate(180deg);
+}
+/*  */
 
-
-/* titre Mob Tab */
-
+/* TITRE POUR TAILLE D'ECRAN INFERIEUR*/
 .title-mob-tablette{
     display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
 }
+.title-mob-tablette > h2{
+    font-family: var(--secondary-font);
+    font-size: 6rem;
+    color: #FFEA32;
+    text-shadow: -8px -8px 0 #125CB3, 8px -8px 0 #125CB3,  -8px 8px 0 #125CB3,  8px 8px 0 #125CB3;
+}
+/*  */
 
+/* MEDIA */
 @media screen and (max-width: 1420px){
     .header{
         display: none;
     }
     .title-mob-tablette{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 15vh;
-    }
-    .title-mob-tablette > h2{
-        font-family: var(--secondary-font);
-        font-size: 6rem;
-        color: #FFEA32;
-        text-shadow: -8px -8px 0 #125CB3, 8px -8px 0 #125CB3,  -8px 8px 0 #125CB3,  8px 8px 0 #125CB3;
     }
 }
-
+/* REGLAGE TAILLE DU TITRE POUR VERSION MOBILE */
 @media screen and (max-width: 635px){
     .title-mob-tablette > h2{
         font-size: 3.5rem;
         text-shadow: -5px -5px 0 #125CB3, 5px -5px 0 #125CB3,  -5px 5px 0 #125CB3,  5px 5px 0 #125CB3;
     }
-
 }
+/*  */
 
 
 
