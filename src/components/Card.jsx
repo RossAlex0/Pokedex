@@ -1,4 +1,6 @@
 import { useState } from 'react';
+
+import "../styles/card.css"
   // Un Props 'pokemon' pour transférer les données de l'API à partir d'un State défini dans App.jsx
   export default function Card({ pokemon }) {
     // Utilisation d'un switch pour vérifier à quel cas correspond l'expression donnée
