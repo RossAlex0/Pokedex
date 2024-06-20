@@ -7,35 +7,35 @@ import "../styles/card.css"
     const getBackground = (type) => {
       switch (type) {
         case "Feu":
-          return "url('../src/assets/fond-feu.png')";
+          return "url('./src/assets/fond-feu.png')";
         case "Eau":
-          return "url('../src/assets/fond-eau.png')";
+          return "url('./src/assets/fond-eau.png')";
         case "Plante":
-          return "url('../src/assets/fond-plante.png')";
+          return "url('./src/assets/fond-plante.png')";
         case "Combat":
-          return "url('../src/assets/fond-combat.png')";
+          return "url('./src/assets/fond-combat.png')";
         case "Dragon":
-          return "url('../src/assets/fond-dragon.png')";
+          return "url('./src/assets/fond-dragon.png')";
         case "Fée":
-          return "url('../src/assets/fond-fee.png')";
+          return "url('./src/assets/fond-fee.png')";
         case "Glace":
-          return "url('../src/assets/fond-glace.png')";
+          return "url('./src/assets/fond-glace.png')";
         case "Insecte":
-          return "url('../src/assets/fond-insecte.png')";
+          return "url('./src/assets/fond-insecte.png')";
         case "Électrik":
-          return "url('../src/assets/fond-electrique.png')";
+          return "url('./src/assets/fond-electrique.png')";
         case "Roche":
-          return "url('../src/assets/fond-roche.png')";
+          return "url('./src/assets/fond-roche.png')";
         case "Poison":
-          return "url('../src/assets/fond-poison.png')";
+          return "url('./src/assets/fond-poison.png')";
         case "Psy":
-          return "url('../src/assets/fond-psy.png')";
+          return "url('./src/assets/fond-psy.png')";
         case "Sol":
-          return "url('../src/assets/fond-sol.png')";
+          return "url('./src/assets/fond-sol.png')";
         case "Spectre":
-          return "url('../src/assets/fond-spectre.png')";
+          return "url('./src/assets/fond-spectre.png')";
         default:
-          return "url('../src/assets/fond-normal.png')";
+          return "url('./src/assets/fond-normal.png')";
       }
     };
     const backgroundImage = getBackground(pokemon.types[0].name);
