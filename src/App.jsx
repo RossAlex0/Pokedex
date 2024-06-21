@@ -106,21 +106,18 @@ pokemons? useEffect(() => {
   }
 },[valueId, valueName]) : null;
 
-
+console.log(pokemons);
   return (
     <>
       <Header />
       <Inputs 
           // Props pour transmettre des valeurs ou fonctions à l'élément enfant via
-          valueId={valueId} 
-          valueName={valueName}
-          setValueName={setValueName}
-          setValueId={setValueId} 
+          idState={{valueId, setValueId}}
+          nameState={{valueName, setValueName}}
+          typeState={{selectType, setSelectType}}
           handleInputId={handleInputId} 
           handleInputName={handleInputName} 
           changeType={changeType}
-          selectType={selectType}
-          setSelectType={setSelectType}
           />
       <section className='main'>
       <img src={pokeBallBg} className='pokeballBg' alt='pokeball'/>
