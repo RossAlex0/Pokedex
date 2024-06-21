@@ -137,7 +137,7 @@ pokemons? useEffect(() => {
     </>
   );
     
-};
+}
 
 export default App
 
