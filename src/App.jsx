@@ -127,7 +127,7 @@ pokemons? useEffect(() => {
         <div className="animat">
           <Lottie animationData={ronflex} loop={true}/>
         </div>
-        <p id='text-notFound'>POKEMON NOT FOUND!</p>
+        <p id='text-notFound'>AUCUN POKEMON TROUVÉ!</p>
       </div>
         {filterPokemons?.map((pokemon) => (
         // Crée un composant Card pour chaque Pokémon filtré avec filterPokemons 

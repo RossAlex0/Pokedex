@@ -7,35 +7,35 @@ import "../styles/card.css"
     const getBackground = (type) => {
       switch (type) {
         case "Feu":
-          return "url('./assets/fond-feu.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-feu.png')";
         case "Eau":
-          return "url('./assets/fond-eau.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-eau.png')";
         case "Plante":
-          return "url('./assets/fond-plante.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-plante.png')";
         case "Combat":
-          return "url('./assets/fond-combat.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-combat.png')";
         case "Dragon":
-          return "url('./assets/fond-dragon.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-dragon.png')";
         case "Fée":
-          return "url('./assets/fond-fee.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-fee.png')";
         case "Glace":
-          return "url('./assets/fond-glace.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-glace.png')";
         case "Insecte":
-          return "url('./assets/fond-insecte.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-insecte.png')";
         case "Électrik":
-          return "url('./assets/fond-electrique.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-electrique.png')";
         case "Roche":
-          return "url('./assets/fond-roche.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-roche.png')";
         case "Poison":
-          return "url('./assets/fond-poison.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-poison.png')";
         case "Psy":
-          return "url('./assets/fond-psy.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-psy.png')";
         case "Sol":
-          return "url('./assets/fond-sol.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-sol.png')";
         case "Spectre":
-          return "url('./assets/fond-spectre.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-spectre.png')";
         default:
-          return "url('./assets/fond-normal.png')";
+          return "url('../Pokedex-first-generation/src/assets/fond-normal.png')";
       }
     };
     const backgroundImage = getBackground(pokemon.types[0].name);
