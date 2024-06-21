@@ -34,7 +34,7 @@ function App() {
     // 
     // Réinitialisation des valeurs de l'input
     setValueName('');
-    setSelectType(" ");
+    setSelectType("");
     // 
     const searchId = input.target.value;
     // Met à jour valueId avec la valeur de l'input cibler
@@ -51,7 +51,7 @@ function App() {
     // 
     // Réinitialisation des valeurs de l'input
     setValueId('');
-    setSelectType(" ");
+    setSelectType("");
     // 
     const searchValue = input.target.value.toLowerCase();
     // Met à jour valueName avec la valeur de l'input cibler
@@ -105,6 +105,7 @@ pokemons? useEffect(() => {
     animatEmpty.style.display = "none"
   }
 },[valueId, valueName]) : null;
+
 
   return (
     <>
