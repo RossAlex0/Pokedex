@@ -84,6 +84,9 @@ body{
     #root{
         width: 100%;
     }
+    #animatEmpty{
+        left: 0;
+    }
 }
 @media screen and (max-width: 1024px) {
     #text-notFound{
