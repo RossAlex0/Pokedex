@@ -1,56 +1,30 @@
 import { useState } from 'react';
 
- 
-
 import "../styles/card.css"
-  // Un Props 'pokemon' pour transférer les données de l'API à partir d'un State défini dans App.jsx
-  export default function Card({ pokemon }) {
-    // Utilisation d'un switch pour vérifier à quel cas correspond l'expression donnée
-    const getBackground = (type) => {
-      switch (type) {
-        case "Feu":
-          return "url('/fond-feu.png')";
-        case "Eau":
-          return "url('/fond-eau.png')";
-        case "Plante":
-          return "url('/fond-plante.png')";
-        case "Combat":
-          return "url('/fond-combat.png')";
-        case "Dragon":
-          return "url('/fond-dragon.png')";
-        case "Fée":
-          return "url('/fond-fee.png')";
-        case "Glace":
-          return "url('/fond-glace.png')";
-        case "Insecte":
-          return "url('/fond-insecte.png')";
-        case "Électrik":
-          return "url('/fond-electrique.png')";
-        case "Roche":
-          return "url('/fond-roche.png')";
-        case "Poison":
-          return "url('/fond-poison.png')";
-        case "Psy":
-          return "url('/fond-psy.png')";
-        case "Sol":
-          return "url('/fond-sol.png')";
-        case "Spectre":
-          return "url('/fond-spectre.png')";
-        default:
-          return "url('/fond-normal.png')";
-      }
+
+// Un Props 'pokemon' pour transférer les données de l'API à partir d'un State défini dans App.jsx
+export default function Card({ pokemon , pokemons }) {
+    // Création d'un objet contenant tous les types pour les relier à leurs noms d'image.
+    const typeForBackground = {
+      Feu: 'feu' , Eau: 'eau' , Plante: 'plante',
+      Combat: 'combat' , Acier: 'acier' , Ténèbres: 'tenebres' ,
+      Dragon: 'dragon' , Fée: 'fee' , Glace: 'glace',
+      Insecte: 'insecte' , Électrik: 'electrique' , Roche: 'roche',
+      Poison: 'poison' , Psy: 'psy' , Sol: 'sol',
+      Spectre: 'spectre' , Vol: 'vol' 
     };
-    const backgroundImage = getBackground(pokemon.types[0].name);
+    
+    // Création de l'url pour récupérer le Background en fonction du type du pokemon
+    const backgroundImage = `url('/fond-${typeForBackground[pokemon.types[0].name] || "normal"}.png')`;
+    
     // Utilisation d'un State pour stocker la valeur initialisée 'true' et l'inverser au clic grâce à une fonction
     const [flipped, setFlipped] = useState(false);  
     const handleCardClick = () => {
       setFlipped(!flipped);
     };
-  
     return (
       // Vérifie si 'flipped' retourne true, si c'est le cas, il ajoute la classe 'flipped' à la division
       <div className={`card-container ${flipped ? 'flipped' : ''}`}>
-          {/* Dans le style, on ajoute directement le background obtenu grâce au switch */}
           <div className="card card-front" style={{ backgroundImage }}>
               <div className="stats">
                   <div className="stats-item">
@@ -73,11 +47,12 @@ import "../styles/card.css"
                   </div>
               </div>
               <img className="imgPokemon" src={pokemon.sprites.regular} alt={pokemon.name.fr} />
+               {/* <CardEvo /> map ca pour refaire le systeme de de App.jsx (hard) */}
               <div className="description">
                   <p className="name">
                       {pokemon.name.fr} <span className="idPokemon">#{pokemon.pokedex_id}</span>
                   </p>
-                  <p className="types">Type : {pokemon.types[0].name}<img src={pokemon.types[0].image} alt={pokemon.types[0].name} />
+                  <p className="types">Type: {pokemon.types[0].name}<img src={pokemon.types[0].image} alt={pokemon.types[0].name} />
                       {pokemon.types[1] && (
                           <>
                             {pokemon.types[1].name}

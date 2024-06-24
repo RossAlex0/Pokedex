@@ -31,11 +31,11 @@ function App() {
     close1.style.display = "none"
     close2.style.display = "inline-block"
     close3.style.display = "none"
-    // 
+    
     // Réinitialisation des valeurs de l'input
     setValueName('');
     setSelectType("");
-    // 
+    
     const searchId = input.target.value;
     // Met à jour valueId avec la valeur de l'input cibler
     setValueId(searchId); 
@@ -48,11 +48,11 @@ function App() {
     close1.style.display = "none"
     close2.style.display = "none"
     close3.style.display = "inline-block"
-    // 
+     
     // Réinitialisation des valeurs de l'input
     setValueId('');
     setSelectType("");
-    // 
+     
     const searchValue = input.target.value.toLowerCase();
     // Met à jour valueName avec la valeur de l'input cibler
     setValueName(searchValue);
@@ -65,11 +65,11 @@ function App() {
     close1.style.display = "inline-block"
     close2.style.display = "none"
     close3.style.display = "none"
-    // 
+     
     // Réinitialisation des valeurs de l'input
     setValueId('');
     setValueName(''); 
-    // 
+    
     const selectTypes = change.target.value;
     // Met à jour slectType en prenant la valeur de l'option cliquer dans le select cibler
     setSelectType(selectTypes); 
@@ -106,7 +106,6 @@ pokemons? useEffect(() => {
   }
 },[valueId, valueName]) : null;
 
-console.log(pokemons);
   return (
     <>
       <Header />
@@ -128,8 +127,8 @@ console.log(pokemons);
         <p id='text-notFound'>AUCUN POKEMON TROUVÉ!</p>
       </div>
         {filterPokemons?.map((pokemon) => (
-        // Crée un composant Card pour chaque Pokémon filtré avec filterPokemons 
-              <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
+          // Crée un composant Card pour chaque Pokémon filtré avec filterPokemons 
+          <Card key={pokemon.pokedex_id} pokemon={pokemon}/>
         ))}
       </section>
     </>

@@ -45,6 +45,8 @@ const blurSearch = () => {
                         <option value="Sol">Sol  ⛰️</option>
                         <option value="Spectre">Spectre  👻</option>
                         <option value="Vol">Vol  🌪️</option>
+                        <option value="Ténèbres">Ténèbres 🌙</option>
+                        <option value="Acier">Acier 🛡️</option>
                     </select>
                     <button type='button' className='btn-close-search' id='close1' onClick={resetFilters}
                      style={{ color: focus ? 'var(--white)' : 'var(--dark)' }}>X</button>
