@@ -1,0 +1,19 @@
+{
+    "Feu": "feu", 
+    "Eau": "eau", 
+    "Plante": "plante",
+    "Combat": "combat", 
+    "Acier": "acier", 
+    "Ténèbres": "tenebres",
+    "Dragon": "dragon", 
+    "Fée": "fee", 
+    "Glace": "glace",
+    "Insecte": "insecte", 
+    "Électrik": "electrique", 
+    "Roche": "roche",
+    "Poison": "poison", 
+    "Psy": "psy", 
+    "Sol": "sol",
+    "Spectre": "spectre", 
+    "Vol": "vol" 
+}

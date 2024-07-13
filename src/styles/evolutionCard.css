@@ -1,0 +1,35 @@
+.cardEvo{
+    height: 115%;
+    width: 115%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2%;
+    align-items: center;
+    position: absolute;
+    border: 1px solid var(--white);
+    border-radius: 16px;
+    z-index: 10;
+    padding: 0.3rem;
+    background-color: #484848;
+    background-image: url(../assets/pokeballbackg.png);
+    background-position: center;
+    background-size: 250%;
+}
+.imgEvo{
+    border-radius: 50%;
+    border: 5px solid var(--gray);
+    height: 25%;
+    width: 33%;
+    background-color: var(--dark);
+    box-shadow: 2px 4px 5px var(--dark);
+}
+.conditionEvo{
+    font-family: var(--secondary-font);
+    color: var(--white);
+    text-align: center;
+}
+.conditionEvo::after{
+    content: "  \21E9";
+    color: var(--white);
+    font-weight: bold;
+}

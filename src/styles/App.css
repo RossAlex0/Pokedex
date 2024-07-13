@@ -8,6 +8,11 @@
     --primary-font: 'Be Vietnam Pro', sans-serif;
     --secondary-font: 'Concert One', sans-serif;
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /*  */
 
 /* SCROLLBAR */
