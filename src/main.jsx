@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client'
 import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 
-import getPokemon from "./divers/getPokemon.js";
+import getPokemon from "./services/getPokemon.js";
 
 const router = createBrowserRouter([
   {
