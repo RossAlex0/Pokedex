@@ -1,0 +1,74 @@
+[
+  {
+    "name":"Feu",
+    "txt":"Feu  🔥"
+  },
+  {
+    "name":"Eau",
+    "txt":"Eau  💧"
+  },
+  {
+    "name":"Plante",
+    "txt":"Plante  🍃"
+  },
+  {
+    "name":"Dragon",
+    "txt":"Dragon  🐲"
+  },
+  {
+    "name":"Vol",
+    "txt":"Vol  🌪️"
+  },
+  {
+    "name":"Psy",
+    "txt":"Psy  🧠"
+  },
+  {
+    "name":"Électrique",
+    "txt":"Électrique  ⚡️"
+  },
+  {
+    "name":"Sol",
+    "txt":"Sol  ⛰️"
+  },
+  {
+    "name":"Ténèbres",
+    "txt":"Ténèbres 🌙"
+  },
+  {
+    "name":"Roche ",
+    "txt":"Roche  🗿"
+  },
+  {
+    "name":"Spectre",
+    "txt":"Spectre  👻"
+  },
+  {
+    "name":"Glace",
+    "txt":"Glace  ❄️"
+  },
+  {
+    "name":"Combat",
+    "txt":"Combat  👊"
+  },
+  {
+    "name":"Poison",
+    "txt":"Poison  🍄"
+  },
+  {
+    "name":"Acier",
+    "txt":"Acier 🛡️"
+  },
+  {
+    "name":"Normal",
+    "txt":"Normal  🔶"
+  },
+  {
+    "name":"Fée",
+    "txt":"Fée  💫"
+  },
+  {
+    "name":"Insecte",
+    "txt":"Insecte  🕸"
+  }
+]
