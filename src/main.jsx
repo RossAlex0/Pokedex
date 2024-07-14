@@ -18,6 +18,11 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: getPokemon,
       },
+      {
+        path: "/:generation",
+        element: <Home />,
+        loader: getPokemon,
+      },
     ],
   },
 ]);

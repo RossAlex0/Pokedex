@@ -72,8 +72,10 @@ export default function Card({ pokemon }) {
               </div>
           </div>
           <div className="card card-back">
-            <img src="/pierreEvo.png" id="evolutionClick" onClick={handleClickEvolution}/>
-            <img className="imgPokemon" id="imgPokemonBack" src={pokemon.sprites.shiny} alt={pokemon.name.fr} onClick={handleCardClick}/>
+            <img src="/pierreEvo.png" id="evolutionClick" alt='Pierre evolution' onClick={handleClickEvolution}/>
+            {pokemon.sprites.shiny 
+            ? <img className="imgPokemon" id="imgPokemonBack" src={pokemon.sprites.shiny} alt={pokemon.name.fr} onClick={handleCardClick}/>
+            : <img className="imgPokemon" id="imgPokemonBack" src={pokemon.sprites.regular} alt={pokemon.name.fr} onClick={handleCardClick}/>}
             <EvolutionCard pokemon={pokemon} evolutionState={{ showEvolution, setShowEvolution}}/> 
             <div className="description" id='descriptionBack' onClick={handleCardClick}>
                 <p className="name">
@@ -98,7 +100,7 @@ Card.propTypes = {
         }).isRequired,
         sprites: PropTypes.shape({
             regular: PropTypes.string.isRequired,
-            shiny: PropTypes.string.isRequired
+            shiny: PropTypes.string
         }).isRequired,
         name: PropTypes.shape({
             fr: PropTypes.string.isRequired

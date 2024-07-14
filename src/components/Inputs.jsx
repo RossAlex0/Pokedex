@@ -1,14 +1,18 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
-import TypePokemon from "../data/dataTypeSelect.json"
+import typesPokemons from "../data/dataTypeSelect.json"
+import generations from "../data/dataGeneration.json"
 
 import '../styles/Input.css'
 
 export default function Inputs ({ idState, nameState, typeState }) {
 
     const [focus, setFocus] = useState(false);
+    const [generation, setGeneration] = useState(1);
 
+    const navigate = useNavigate();
     const refClose1 = useRef(null);
     const refClose2 = useRef(null);
     const refClose3 = useRef(null);
@@ -51,31 +55,75 @@ export default function Inputs ({ idState, nameState, typeState }) {
         refClose2.current.style.display = "none";
         refClose3.current.style.display = "none";
       };
-  
+
+      const handleCHangeGeneration = (e) => {
+        setGeneration(e.target.value);
+      };
+      const handleClickGeneration = () => {
+        navigate(`/${generation}`);   
+      };
+      
     return (
         <>
             <h2 className='h2Explor'>Mon Pokedex</h2>
             <h3 className='h3Explor'>Explorez le vaste monde du Pokédex et découvrez tous les Pokémon de vos rêves.</h3>
             <div className="filter">
                 <div className="div-search">
-                    <select name="pokType" className="input-search" id="searchByType" onChange={handleChangeSelect} onBlur={blurSearch} onFocus={focusSearch} value={typeState.selectType}>
+                    <select 
+                      name="pokType" className="input-search" id="searchByType" 
+                      onChange={handleChangeSelect} onBlur={blurSearch} onFocus={focusSearch} 
+                      value={typeState.selectType}
+                    >
                         <option value="">Type du pokémon</option>
-                        {TypePokemon.map((type)=> 
+                        {typesPokemons.map((type)=> 
                             <option value={type.name} key={type.name}>{type.txt}</option>
                         )}
                     </select>
-                    <button type='button' className='btn-close-search' id='close1' ref={refClose1} onClick={handleClickReset}
-                     style={{ color: focus ? 'var(--white)' : 'var(--dark)' }}>X</button>
+                    <button 
+                      type='button' className='btn-close-search' id='close1' 
+                      ref={refClose1} onClick={handleClickReset}
+                      style={{ color: focus ? 'var(--white)' : 'var(--dark)' }}
+                    >
+                      X
+                    </button>
                 </div>
                 <div className="div-search">               
-                    <input type='number' value={idState.valueId} onChange={handleChangeId} onBlur={blurSearch} onFocus={focusSearch} className="input-search" id="searchById" placeholder="&#x1F50E;&#xFE0E;  ID du pokémon"/>
-                    <button type='button' className='btn-close-search' id='close2' ref={refClose2} onClick={handleClickReset}
-                    style={{ color: focus ? 'var(--white)' : 'var(--dark)' }}>X</button>
+                    <input 
+                      type='number' className="input-search" id="searchById"
+                      value={idState.valueId} placeholder="&#x1F50E;&#xFE0E;  ID du pokémon"
+                      onChange={handleChangeId} onBlur={blurSearch} onFocus={focusSearch} 
+                    />
+                    <button 
+                      type='button' className='btn-close-search' id='close2' 
+                      ref={refClose2} onClick={handleClickReset}
+                      style={{ color: focus ? 'var(--white)' : 'var(--dark)' }}
+                    >
+                      X
+                    </button>
                 </div>
                 <div className="div-search">
-                    <input type="text" value={nameState.valueName} onChange={handleChangeName} onBlur={blurSearch} onFocus={focusSearch} className="input-search" id="searchByName" placeholder="&#x1F50E;&#xFE0E;  Nom du pokémon"/>
-                    <button type='button' className='btn-close-search' id='close3' ref={refClose3} onClick={handleClickReset}
-                    style={{ color: focus ? 'var(--white)' : 'var(--dark)' }}>X</button>
+                    <input 
+                      type="text" className="input-search" id="searchByName"
+                      value={nameState.valueName} placeholder="&#x1F50E;&#xFE0E;  Nom du pokémon"
+                      onChange={handleChangeName} onBlur={blurSearch} onFocus={focusSearch} 
+                    />
+                    <button 
+                      type='button' className='btn-close-search' id='close3' 
+                      ref={refClose3} onClick={handleClickReset}
+                      style={{ color: focus ? 'var(--white)' : 'var(--dark)' }}
+                    >
+                      X
+                    </button>
+                </div>
+                <div className="div-search" >
+                  <select 
+                    name='pokGeneration' className="input-search" id="searchByType" 
+                    onChange={handleCHangeGeneration} onClick={handleClickGeneration}
+                  >
+                    {generations.map((generation) =>
+                      <option value={generation.name} key={generation.name} >{generation.txt}</option>
+                    )}
+                  </select>
                 </div>
             </div>
         </>

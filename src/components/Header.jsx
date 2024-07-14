@@ -48,18 +48,34 @@ export default function Header() {
                 <div className='cercle-line'>
                     <div className="cercles-3">
                         <div className="mini-cercle" />
-                        <div className="mini-cercle" id='yellowBubble' ref={yellowBubble} onClick={bubbleClickYellow} />
+                        <div 
+                            className="mini-cercle" id='yellowBubble' 
+                            ref={yellowBubble} onClick={bubbleClickYellow} 
+                        />
                         <div className="mini-cercle" />
                     </div>
                     <div id="chatBull" ref={chatBull}>
                             <p>Prof.Chen:</p>
-                            <p>Salutations, dresseur ! Félicitations pour avoir terminé le Pokédex! Continuez à explorer et à partager votre amour pour les Pokémon !</p>
-                            <button type='button' className='icon-close-chat' id='closeProf' onClick={handleClickCloseProf}>&#x2716;</button>
+                            <p>
+                                Salutations, dresseur ! Félicitations pour avoir terminé le Pokédex! 
+                                Continuez à explorer et à partager votre amour pour les Pokémon !
+                            </p>
+                            <button 
+                                type='button' className='icon-close-chat' id='closeProf' 
+                                onClick={handleClickCloseProf}
+                            >
+                                &#x2716;
+                            </button>
                         </div>
                         <div id="welcomeBull" ref={welcomeBull}>
                             <p>Un nouveau message a été enregistré sur votre Pokédex !</p>
                             <p>Cliquez sur le bouton lumineux*</p>
-                            <button type='button' className='icon-close-chat' id='closeWelcome' onClick={handleClickCloseWelcome}>&#x2716;</button>
+                            <button 
+                                type='button' className='icon-close-chat' id='closeWelcome' 
+                                onClick={handleClickCloseWelcome}
+                            >
+                                &#x2716;
+                            </button>
                         </div>
                     <div className="hr-phone"><hr/><hr/><hr/></div>
                 </div>

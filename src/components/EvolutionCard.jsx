@@ -17,8 +17,7 @@ return (
         >
         {pokemon.evolution && pokemon.evolution.pre && pokemon.evolution.pre[0] ? (
             <>
-                <img
-                    className='imgEvo'
+                <img className='imgEvo'
                     src={`https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pokemon.evolution.pre[0].pokedex_id}/regular.png`}
                     alt={pokemon.evolution.pre[0].name}
                 />
@@ -29,8 +28,7 @@ return (
         ) : null}
         {pokemon.evolution && pokemon.evolution.pre && pokemon.evolution.pre[1] ? (
             <>
-                <img
-                    className='imgEvo'
+                <img className='imgEvo'
                     src={`https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pokemon.evolution.pre[1].pokedex_id}/regular.png`}
                     alt={pokemon.evolution.pre[1].name}
                 />
@@ -49,8 +47,7 @@ return (
                 <p className="conditionEvo">
                     {pokemon.evolution.next[0].condition}
                 </p>
-                <img
-                    className='imgEvo'
+                <img className='imgEvo'
                     src={`https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pokemon.evolution.next[0].pokedex_id}/regular.png`}
                     alt={pokemon.evolution.next[0].name}
                 />
@@ -61,8 +58,7 @@ return (
                 <p className="conditionEvo">
                     {pokemon.evolution.next[1].condition}
                 </p>
-                <img
-                    className='imgEvo'
+                <img className='imgEvo'
                     src={`https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${pokemon.evolution.next[1].pokedex_id}/regular.png`}
                     alt={pokemon.evolution.next[1].name}
                 />
