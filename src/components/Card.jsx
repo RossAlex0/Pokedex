@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 import PropTypes from "prop-types"
 
-import EvolutionCard from './EvolutionCard';
+import EvolutionCard from "./EvolutionCard";
 
 import TypeData from "../data/dataTypeBackground.json"
 
@@ -15,7 +15,7 @@ export default function Card({ pokemon }) {
         setShowEvolution(!showEvolution)
     }
   
-    const backgroundImage = `url('/fond-${TypeData[pokemon.types[0].name] || "normal"}.png')`;   
+    const backgroundImage = `url("/fond-${TypeData[pokemon.types[0].name] || "normal"}.png")`;   
     
     const [flipped, setFlipped] = useState(false);  
     const handleCardClick = () => {
@@ -25,7 +25,7 @@ export default function Card({ pokemon }) {
    
 
     return (
-      <div className={`card-container ${flipped ? 'flipped' : ''}`} >
+      <div className={`card-container ${flipped ? "flipped" : ""}`} >
           <div className="card card-front"  style={{ backgroundImage }}>
               <div className="stats">
                   <div className="stats-item">
@@ -68,23 +68,23 @@ export default function Card({ pokemon }) {
                           </>
                       )}
                   </p>
-                  <span className='iconBackFace' onClick={handleCardClick}> &#x3009;</span>
+                  <span className="iconBackFace" onClick={handleCardClick}> &#x3009;</span>
               </div>
           </div>
           <div className="card card-back">
-            <img src="/pierreEvo.png" id="evolutionClick" alt='Pierre evolution' onClick={handleClickEvolution}/>
+            <img src="/oeufEvo.png" id="evolutionClick" alt="Pierre evolution" onClick={handleClickEvolution}/>
             {pokemon.sprites.shiny 
             ? <img className="imgPokemon" id="imgPokemonBack" src={pokemon.sprites.shiny} alt={pokemon.name.fr} onClick={handleCardClick}/>
             : <img className="imgPokemon" id="imgPokemonBack" src={pokemon.sprites.regular} alt={pokemon.name.fr} onClick={handleCardClick}/>}
             <EvolutionCard pokemon={pokemon} evolutionState={{ showEvolution, setShowEvolution}}/> 
-            <div className="description" id='descriptionBack' onClick={handleCardClick}>
+            <div className="description" id="descriptionBack" onClick={handleCardClick}>
                 <p className="name">
                     {pokemon.name.fr} Shiny 🌟
                 </p>
                 <p className="types">
                     {pokemon.category}<br />Taille: {pokemon.height}<br />Poids: {pokemon.weight}
                 </p>
-              <span className='iconBack' onClick={handleCardClick}>&#x3008;</span>
+              <span className="iconBack" onClick={handleCardClick}>&#x3008;</span>
             </div>
           </div>
       </div>

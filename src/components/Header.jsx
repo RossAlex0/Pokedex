@@ -1,6 +1,6 @@
-import { useState,useRef } from 'react';
+import { useState,useRef } from "react";
 
-import '../styles/Header.css'
+import "../styles/Header.css"
 
 export default function Header() {
 
@@ -41,15 +41,15 @@ export default function Header() {
                 <div className="cercles-white-blue">
                     <div className="cercle-blanc">
                         <div className="cercle-int-bleu">
-                            <div id='profChen' ref={profChen} />
+                            <div id="profChen" ref={profChen} />
                         </div>
                     </div>
                 </div>
-                <div className='cercle-line'>
+                <div className="cercle-line">
                     <div className="cercles-3">
                         <div className="mini-cercle" />
                         <div 
-                            className="mini-cercle" id='yellowBubble' 
+                            className="mini-cercle" id="yellowBubble" 
                             ref={yellowBubble} onClick={bubbleClickYellow} 
                         />
                         <div className="mini-cercle" />
@@ -61,7 +61,7 @@ export default function Header() {
                                 Continuez à explorer et à partager votre amour pour les Pokémon !
                             </p>
                             <button 
-                                type='button' className='icon-close-chat' id='closeProf' 
+                                type="button" className="icon-close-chat" id="closeProf" 
                                 onClick={handleClickCloseProf}
                             >
                                 &#x2716;
@@ -71,7 +71,7 @@ export default function Header() {
                             <p>Un nouveau message a été enregistré sur votre Pokédex !</p>
                             <p>Cliquez sur le bouton lumineux*</p>
                             <button 
-                                type='button' className='icon-close-chat' id='closeWelcome' 
+                                type="button" className="icon-close-chat" id="closeWelcome" 
                                 onClick={handleClickCloseWelcome}
                             >
                                 &#x2716;

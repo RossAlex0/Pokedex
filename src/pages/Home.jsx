@@ -1,22 +1,22 @@
 import { useLoaderData } from "react-router-dom"; 
-import { useState , useEffect } from 'react';
-import Lottie from 'lottie-react';
+import { useState , useEffect } from "react";
+import Lottie from "lottie-react";
 
-import Header from '../components/Header';
-import Card from '../components/Card';
-import Inputs from '../components/Inputs';
+import Header from "../components/Header";
+import Card from "../components/Card";
+import Inputs from "../components/Inputs";
 
-import pokeBallBg from '../assets/pokeballbackg.png';
-import ronflex from '../assets/ronflex.json';
+import pokeBallBg from "../assets/pokeballbackg.png";
+import ronflex from "../assets/ronflex.json";
 
-import '../styles/App.css';
+import "../styles/App.css";
 
 export default function Home () {
   const pokemons = useLoaderData()  
 
-  const [valueName, setValueName] = useState('');
-  const [selectType, setSelectType] = useState('');
-  const [valueId, setValueId] = useState('');
+  const [valueName, setValueName] = useState("");
+  const [selectType, setSelectType] = useState("");
+  const [valueId, setValueId] = useState("");
 
   
   const filterPokemons =  pokemons.filter(pokemon => {
@@ -32,7 +32,7 @@ export default function Home () {
   } );
   
 useEffect(() => {
-  const numbersOfCards = document.querySelectorAll('.card-container');
+  const numbersOfCards = document.querySelectorAll(".card-container");
   const animatEmpty = document.querySelector("#animatEmpty")
   if(numbersOfCards.length === 0 && (valueId !== "" || valueName !== "")){
     animatEmpty.style.display = "flex"
@@ -49,13 +49,17 @@ useEffect(() => {
           nameState={{valueName, setValueName}}
           typeState={{selectType, setSelectType}}
           />
-      <section className='main'>
-      <img src={pokeBallBg} className='pokeballBg' alt='pokeball'/>
-      <div id='animatEmpty'>
+      <section className="main">
+      <img 
+        className="pokeballBg" 
+        alt="pokeball"
+        src={pokeBallBg}
+      />
+      <div id="animatEmpty">
         <div className="animat">
           <Lottie animationData={ronflex} loop={true}/>
         </div>
-        <p id='text-notFound'>AUCUN POKEMON TROUVÉ!</p>
+        <p id="text-notFound">AUCUN POKEMON TROUVÉ!</p>
       </div>
         {filterPokemons?.map((pokemon) => (
           <Card key={pokemon.pokedex_id} pokemon={pokemon} pokemons={pokemons}/>
