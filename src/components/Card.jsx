@@ -11,18 +11,16 @@ export default function Card({ pokemon }) {
 
     const [showEvolution, setShowEvolution] = useState(false);
 
+    const backgroundImage = `url("/fond-${TypeData[pokemon.types[0].name] || "normal"}.png")`;
+
     const handleClickEvolution = () => {
         setShowEvolution(!showEvolution)
-    }
-  
-    const backgroundImage = `url("/fond-${TypeData[pokemon.types[0].name] || "normal"}.png")`;   
+    };  
     
     const [flipped, setFlipped] = useState(false);  
     const handleCardClick = () => {
       setFlipped(!flipped);
     };
-
-   
 
     return (
       <div className={`card-container ${flipped ? "flipped" : ""}`} >

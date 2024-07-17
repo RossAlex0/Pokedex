@@ -17,8 +17,9 @@ export default function Home () {
   const [valueName, setValueName] = useState("");
   const [selectType, setSelectType] = useState("");
   const [valueId, setValueId] = useState("");
+  const [numCard, setNumCard] = useState(20)
 
-  
+  // Filtrage Pokemon avec les input et select
   const filterPokemons =  pokemons.filter(pokemon => {
     if (valueId || valueName || selectType) {
       return (
@@ -30,16 +31,17 @@ export default function Home () {
       return true; 
     }
   } );
-  
-useEffect(() => {
-  const numbersOfCards = document.querySelectorAll(".card-container");
-  const animatEmpty = document.querySelector("#animatEmpty")
-  if(numbersOfCards.length === 0 && (valueId !== "" || valueName !== "")){
-    animatEmpty.style.display = "flex"
-  }else{
-    animatEmpty.style.display = "none"
-  }
-},[valueId, valueName]);
+
+  // Detection du défilement pour charger plus de carte
+  useEffect(() => {
+    const scrollAddCard = () => {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 300) {
+        setNumCard(prevNumCard => prevNumCard + 10); 
+    }};
+    window.addEventListener("scroll", scrollAddCard);
+    return () => window.removeEventListener("scroll", scrollAddCard);
+  }, []);
+
 
   return (
     <>
@@ -48,6 +50,7 @@ useEffect(() => {
           idState={{valueId, setValueId}}
           nameState={{valueName, setValueName}}
           typeState={{selectType, setSelectType}}
+          setNumCard={setNumCard}
           />
       <section className="main">
       <img 
@@ -61,7 +64,7 @@ useEffect(() => {
         </div>
         <p id="text-notFound">AUCUN POKEMON TROUVÉ!</p>
       </div>
-        {filterPokemons?.map((pokemon) => (
+        {filterPokemons?.slice(0, numCard).map((pokemon) => (
           <Card key={pokemon.pokedex_id} pokemon={pokemon} pokemons={pokemons}/>
         ))}
       </section>

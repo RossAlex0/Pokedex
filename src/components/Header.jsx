@@ -6,14 +6,15 @@ export default function Header() {
 
     const [isExecuted, setIsExecuted] = useState(false);
     
-    const welcomeBull = useRef(null)
-    const yellowBubble = useRef(null)
-    const chatBull = useRef(null)
-    const profChen = useRef(null)
+    const welcomeBull = useRef(null);
+    const yellowBubble = useRef(null);
+    const chatBull = useRef(null);
+    const profChen = useRef(null);
 
     setTimeout(() => {
         welcomeBull.current.style.display = "none";
-    }, 10000);     
+    }, 10000); 
+
     const bubbleClickYellow = () => {
         isExecuted ? null : (
         setIsExecuted(true),
@@ -27,6 +28,7 @@ export default function Header() {
             profChen.current.style.display = "none";
         }, 9000));
     };
+
     const handleClickCloseProf = () => {
         chatBull.current.style.display = "none";
         profChen.current.style.display = "none";

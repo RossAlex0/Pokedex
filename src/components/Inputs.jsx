@@ -4,10 +4,11 @@ import PropTypes from "prop-types"
 
 import typesPokemons from "../data/dataTypeSelect.json"
 import generations from "../data/dataGeneration.json"
+import animatNoResult from "/src/services/animatNoResult"
 
 import "../styles/Input.css"
 
-export default function Inputs ({ idState, nameState, typeState }) {
+export default function Inputs ({ idState, nameState, typeState, setNumCard }) {
 
     const [focus, setFocus] = useState(false);
     const [generation, setGeneration] = useState(1);
@@ -22,46 +23,38 @@ export default function Inputs ({ idState, nameState, typeState }) {
     };
     const blurSearch = () => {
         setFocus(false);
-    }
-    const handleClickReset = () => {
-        idState.setValueId("");
-        nameState.setValueName("");
-        typeState.setSelectType("");
-        refClose1.current.style.display = "none";
-        refClose2.current.style.display = "none";
-        refClose3.current.style.display = "none";
     };
-    const handleChangeId = (e) => {
-        nameState.setValueName("");
-        typeState.setSelectType("");
-        idState.setValueId(e.target.value);
-        refClose1.current.style.display = "none";
-        refClose2.current.style.display = "inline-block";
-        refClose3.current.style.display = "none";
-      };
-      const handleChangeName = (e) => {
-        idState.setValueId("");
-        typeState.setSelectType("");
-        nameState.setValueName(e.target.value.toLowerCase());
-        refClose1.current.style.display = "none";
-        refClose2.current.style.display = "none";
-        refClose3.current.style.display = "inline-block";
-      };
-      const handleChangeSelect = (e) => {
-        idState.setValueId("");
-        nameState.setValueName("");
-        typeState.setSelectType(e.target.value); 
-        refClose1.current.style.display = "inline-block";
-        refClose2.current.style.display = "none";
-        refClose3.current.style.display = "none";
-      };
+    const handleClickReset = () => {
+      idState.setValueId("");
+      nameState.setValueName("");
+      typeState.setSelectType("");
 
-      const handleCHangeGeneration = (e) => {
-        setGeneration(e.target.value);
-      };
-      const handleClickGeneration = () => {
-        navigate(`/${generation}`);   
-      };
+      refClose1.current.style.display = "none";
+      refClose2.current.style.display = "none";
+      refClose3.current.style.display = "none";
+    };
+    const HandleChangeFilter = (filter, value) => {
+      idState.setValueId(filter === 'id' ? value : '');
+      nameState.setValueName(filter === 'name' ? value.toLowerCase() : '');
+      typeState.setSelectType(filter === 'select' ? value : '');
+
+      refClose1.current.style.display = filter === 'select' ? 'inline-block' : 'none';
+      refClose2.current.style.display = filter === 'id' ? 'inline-block' : 'none';
+      refClose3.current.style.display = filter === 'name' ? 'inline-block' : 'none';
+      // Si aucun résultat => lance l'animation grâce à la Function
+      // Timer pour s'assurer que les états sont mis à jour
+      setTimeout(() => {
+        animatNoResult(idState.valueId, nameState.valueName);
+      }, 0);
+    };
+    
+    const handleCHangeGeneration = (e) => {
+      setGeneration(e.target.value);
+    };
+    const handleClickGeneration = () => {
+      setNumCard(20)
+      navigate(`/${generation}`);   
+    };
       
     return (
         <>
@@ -71,7 +64,7 @@ export default function Inputs ({ idState, nameState, typeState }) {
                 <div className="div-search">
                     <select 
                       name="pokType" className="input-search" id="searchByType" 
-                      onChange={handleChangeSelect} onBlur={blurSearch} onFocus={focusSearch} 
+                      onChange={(e) => HandleChangeFilter("select", e.target.value)} onBlur={blurSearch} onFocus={focusSearch} 
                       value={typeState.selectType}
                     >
                         <option value="">Type du pokémon</option>
@@ -91,7 +84,7 @@ export default function Inputs ({ idState, nameState, typeState }) {
                     <input 
                       type="number" className="input-search" id="searchById"
                       value={idState.valueId} placeholder="&#x1F50E;&#xFE0E;  ID du pokémon"
-                      onChange={handleChangeId} onBlur={blurSearch} onFocus={focusSearch} 
+                      onChange={(e) =>HandleChangeFilter("id", e.target.value)} onBlur={blurSearch} onFocus={focusSearch} 
                     />
                     <button 
                       type="button" className="btn-close-search" id="close2" 
@@ -105,7 +98,7 @@ export default function Inputs ({ idState, nameState, typeState }) {
                     <input 
                       type="text" className="input-search" id="searchByName"
                       value={nameState.valueName} placeholder="&#x1F50E;&#xFE0E;  Nom du pokémon"
-                      onChange={handleChangeName} onBlur={blurSearch} onFocus={focusSearch} 
+                      onChange={(e) => HandleChangeFilter("name", e.target.value)} onBlur={blurSearch} onFocus={focusSearch} 
                     />
                     <button 
                       type="button" className="btn-close-search" id="close3" 
@@ -143,4 +136,5 @@ Inputs.propTypes = {
       selectType: PropTypes.string.isRequired,
       setSelectType: PropTypes.func.isRequired  
     }).isRequired,
+    setNumCard: PropTypes.func.isRequired
   };
