@@ -54,16 +54,6 @@ export default function Home() {
   }, [pokemons, valueId, valueName, selectType]);
 
   useEffect(() => {
-    console.info(
-      filterPokemons.length,
-      filterPokemons,
-      valueId,
-      valueName,
-      selectType
-    );
-  }, [filterPokemons]);
-
-  useEffect(() => {
     const scrollAddCard = () => {
       if (
         window.innerHeight + window.scrollY >=
