@@ -1,111 +1,110 @@
 /* GENERAL */
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&display=swap");
 :root {
-    --white: #f3f3f3;
-    --gray: #d9d9d9;
-    --dark: #2f2f2f;
-    --green-background: #91c28d;
-    --primary-font: 'Be Vietnam Pro', sans-serif;
-    --secondary-font: 'Concert One', sans-serif;
+  --white: #f3f3f3;
+  --gray: #d9d9d9;
+  --dark: #2f2f2f;
+  --green-background: #91c28d;
+  --primary-font: "Be Vietnam Pro", sans-serif;
+  --secondary-font: "Concert One", sans-serif;
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /*  */
 
 /* SCROLLBAR */
-html{
-    scrollbar-color: var(--gray) var(--dark);
+html {
+  scrollbar-color: var(--gray) var(--dark);
 }
 /*  */
 
 /* PARENTS PRINCIPALE */
-body{
-    background-color: var(--dark);
-    display: flex;
-    justify-content: center;
+body {
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
 }
-#root{
-    background-color: var(--dark);
-    max-width: 1440px;
-    border-left: 4px solid black;
-    border-right: 4px solid black;
-    min-height: 100vh;
+#root {
+  background-color: var(--dark);
+  max-width: 1440px;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  min-height: 100vh;
 }
 /*  */
 
 /* POKEBALL BACKGROUND */
-.pokeballBg{
-    position: fixed;
-    z-index: 0;
-    margin-top: -24rem;
-    margin-left: 10rem;
-    text-align: center;
-    transform: rotate(50deg);
-    width: 90rem;
+.pokeballBg {
+  position: fixed;
+  z-index: 0;
+  margin-top: -24rem;
+  margin-left: 10rem;
+  text-align: center;
+  transform: rotate(50deg);
+  width: 90rem;
 }
 /*  */
 
 /* ANIMATIONS IF NOT FOUND */
-#animatEmpty{
-    width: 100%;
-    max-width: 1440px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    position: absolute;
-    margin-top: 20px;
+#animatEmpty {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-top: 20px;
 }
-.animat{
-    width: 25%;
-    border-radius: 20%;
-    overflow: hidden;
+.animat {
+  width: 25%;
+  border-radius: 20%;
+  overflow: hidden;
 }
-#text-notFound{
-    font-family: var(--secondary-font);
-    font-size: 5rem;
-    color: var(--white);
-    text-decoration:overline underline;
+#text-notFound {
+  font-family: var(--secondary-font);
+  font-size: 5rem;
+  color: var(--white);
+  text-decoration: overline underline;
 }
 
 /* CONTAINER PRINCIPALE DES CARTES */
 .main {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 3rem;
-    flex-wrap: wrap;
-    gap: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 3rem;
+  flex-wrap: wrap;
+  gap: 4rem;
 }
 /*  */
 
 /* media */
-@media screen and (max-width: 1420px){
-    #root{
-        width: 100%;
-    }
-    #animatEmpty{
-        left: 0;
-    }
+@media screen and (max-width: 1420px) {
+  #root {
+    width: 100%;
+  }
+  #animatEmpty {
+    left: 0;
+  }
 }
 @media screen and (max-width: 1024px) {
-    #text-notFound{
-        font-size: 3rem;
-    }
+  #text-notFound {
+    font-size: 3rem;
+  }
 }
 @media screen and (max-width: 642px) {
-    #text-notFound{
-        font-size: 2rem;
-    }
+  #text-notFound {
+    font-size: 2rem;
+  }
 }
 @media screen and (max-width: 480px) {
-    #animatEmpty{
-        margin-left: -3.7rem;
-    }
+  #animatEmpty {
+    margin-left: -3.7rem;
+  }
 }
 /*  */

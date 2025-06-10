@@ -1,10 +1,9 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import typesPokemons from "../data/dataTypeSelect.json";
 import generations from "../data/dataGeneration.json";
-import animatNoResult from "/src/services/animatNoResult";
 
 import "../styles/Input.css";
 
@@ -12,9 +11,6 @@ export default function Inputs({ idState, nameState, typeState, setNumCard }) {
   const [focus, setFocus] = useState(false);
 
   const navigate = useNavigate();
-  const refClose1 = useRef(null);
-  const refClose2 = useRef(null);
-  const refClose3 = useRef(null);
 
   const focusSearch = () => {
     setFocus(true);
@@ -22,30 +18,15 @@ export default function Inputs({ idState, nameState, typeState, setNumCard }) {
   const blurSearch = () => {
     setFocus(false);
   };
-  const handleClickReset = () => {
-    idState.setValueId("");
-    nameState.setValueName("");
-    typeState.setSelectType("");
-
-    refClose1.current.style.display = "none";
-    refClose2.current.style.display = "none";
-    refClose3.current.style.display = "none";
+  const handleClickReset = (filter) => {
+    if (filter === "id") idState.setValueId("");
+    if (filter === "name") nameState.setValueName("");
+    if (filter === "select") typeState.setSelectType("");
   };
   const HandleChangeFilter = (filter, value) => {
-    idState.setValueId(filter === "id" ? value : "");
-    nameState.setValueName(filter === "name" ? value.toLowerCase() : "");
-    typeState.setSelectType(filter === "select" ? value : "");
-
-    refClose1.current.style.display =
-      filter === "select" ? "inline-block" : "none";
-    refClose2.current.style.display = filter === "id" ? "inline-block" : "none";
-    refClose3.current.style.display =
-      filter === "name" ? "inline-block" : "none";
-    // Si aucun résultat => lance l'animation grâce à la Function
-    // Timer pour s'assurer que les états sont mis à jour
-    setTimeout(() => {
-      animatNoResult(idState.valueId, nameState.valueName);
-    }, 0);
+    if (filter === "id") idState.setValueId(value);
+    if (filter === "name") nameState.setValueName(value.toLowerCase());
+    if (filter === "select") typeState.setSelectType(value);
   };
 
   const handleCHangeGeneration = (e) => {
@@ -82,9 +63,11 @@ export default function Inputs({ idState, nameState, typeState, setNumCard }) {
             type="button"
             className="btn-close-search"
             id="close1"
-            ref={refClose1}
-            onClick={handleClickReset}
-            style={{ color: focus ? "var(--white)" : "var(--dark)" }}
+            onClick={() => handleClickReset("select")}
+            style={{
+              display: typeState.selectType ? "inline-block" : "none",
+              color: focus ? "var(--white)" : "var(--dark)",
+            }}
           >
             X
           </button>
@@ -104,9 +87,11 @@ export default function Inputs({ idState, nameState, typeState, setNumCard }) {
             type="button"
             className="btn-close-search"
             id="close2"
-            ref={refClose2}
-            onClick={handleClickReset}
-            style={{ color: focus ? "var(--white)" : "var(--dark)" }}
+            onClick={() => handleClickReset("id")}
+            style={{
+              display: idState.valueId ? "inline-block" : "none",
+              color: focus ? "var(--white)" : "var(--dark)",
+            }}
           >
             X
           </button>
@@ -126,9 +111,11 @@ export default function Inputs({ idState, nameState, typeState, setNumCard }) {
             type="button"
             className="btn-close-search"
             id="close3"
-            ref={refClose3}
-            onClick={handleClickReset}
-            style={{ color: focus ? "var(--white)" : "var(--dark)" }}
+            onClick={() => handleClickReset("name")}
+            style={{
+              display: nameState.valueName ? "inline-block" : "none",
+              color: focus ? "var(--white)" : "var(--dark)",
+            }}
           >
             X
           </button>

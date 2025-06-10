@@ -1,5 +1,5 @@
-import { useLoaderData } from "react-router-dom"; 
-import { useState , useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
+import { useState, useEffect, useMemo } from "react";
 import Lottie from "lottie-react";
 
 import Header from "../components/Header";
@@ -11,63 +11,101 @@ import ronflex from "../assets/ronflex.json";
 
 import "../styles/App.css";
 
-export default function Home () {
-  const pokemons = useLoaderData()  
+export default function Home() {
+  const pokemons = useLoaderData();
 
   const [valueName, setValueName] = useState("");
   const [selectType, setSelectType] = useState("");
   const [valueId, setValueId] = useState("");
-  const [numCard, setNumCard] = useState(20)
+  const [numCard, setNumCard] = useState(20);
 
-  // Filtrage Pokemon avec les input et select
-  const filterPokemons =  pokemons.filter(pokemon => {
-    if (valueId || valueName || selectType) {
-      return (
-        (valueId && pokemon.pokedex_id.toString().includes(valueId)) || 
-        (valueName && pokemon.name.fr && pokemon.name.fr.toLowerCase().includes(valueName)) ||
-        (selectType && pokemon.types.some(type => type.name === selectType))
+  const filterPokemons = useMemo(() => {
+    if (!pokemons) return [];
+
+    let currentPokemons = pokemons;
+
+    if (valueId) {
+      currentPokemons = currentPokemons.filter((pokemon) =>
+        `${pokemon.pokedex_id}`.includes(valueId)
       );
-    }else{
-      return true; 
     }
-  } );
 
-  // Detection du défilement pour charger plus de carte
+    if (valueName) {
+      const nameLower = valueName.toLowerCase();
+      currentPokemons = currentPokemons.filter(
+        (pokemon) =>
+          pokemon.name.fr && pokemon.name.fr.toLowerCase().includes(nameLower)
+      );
+    }
+
+    if (selectType) {
+      currentPokemons = currentPokemons.filter((pokemon) =>
+        pokemon.types.some((type) => type.name === selectType)
+      );
+    }
+
+    if (currentPokemons.length === 0) {
+      if (!selectType && !valueName && !valueId) {
+        return pokemons;
+      }
+      return [];
+    }
+    return currentPokemons;
+  }, [pokemons, valueId, valueName, selectType]);
+
+  useEffect(() => {
+    console.info(
+      filterPokemons.length,
+      filterPokemons,
+      valueId,
+      valueName,
+      selectType
+    );
+  }, [filterPokemons]);
+
   useEffect(() => {
     const scrollAddCard = () => {
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 300) {
-        setNumCard(prevNumCard => prevNumCard + 10); 
-    }};
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 300
+      ) {
+        setNumCard((prevNumCard) => prevNumCard + 10);
+      }
+    };
     window.addEventListener("scroll", scrollAddCard);
     return () => window.removeEventListener("scroll", scrollAddCard);
   }, []);
 
-
   return (
     <>
       <Header />
-      <Inputs 
-          idState={{valueId, setValueId}}
-          nameState={{valueName, setValueName}}
-          typeState={{selectType, setSelectType}}
-          setNumCard={setNumCard}
-          />
-      <section className="main">
-      <img 
-        className="pokeballBg" 
-        alt="pokeball"
-        src={pokeBallBg}
+      <Inputs
+        idState={{ valueId, setValueId }}
+        nameState={{ valueName, setValueName }}
+        typeState={{ selectType, setSelectType }}
+        setNumCard={setNumCard}
       />
-      <div id="animatEmpty">
-        <div className="animat">
-          <Lottie animationData={ronflex} loop={true}/>
-        </div>
-        <p id="text-notFound">AUCUN POKEMON TROUVÉ!</p>
-      </div>
-        {filterPokemons?.slice(0, numCard).map((pokemon) => (
-          <Card key={pokemon.pokedex_id} pokemon={pokemon} pokemons={pokemons}/>
-        ))}
+      <section className="main">
+        <img className="pokeballBg" alt="pokeball" src={pokeBallBg} />
+        {filterPokemons.length === 0 ? (
+          <div id="animatEmpty">
+            <div className="animat">
+              <Lottie animationData={ronflex} loop={true} />
+            </div>
+            <p id="text-notFound">AUCUN POKEMON TROUVÉ!</p>
+          </div>
+        ) : (
+          filterPokemons
+            .slice(0, numCard)
+            .map((pokemon) => (
+              <Card
+                key={pokemon.pokedex_id}
+                pokemon={pokemon}
+                pokemons={pokemons}
+              />
+            ))
+        )}
       </section>
     </>
-  );   
+  );
 }
